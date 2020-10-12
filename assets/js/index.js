@@ -1,6 +1,11 @@
 $(document).ready(function () {
     SetCursor();
     SetNavbarMenu();
+    
+    let wow = new WOW({
+        animateClass: 'animate__animated'
+    })
+    wow.init();
 })
 
 function SetCursor() {
@@ -13,8 +18,7 @@ function SetCursor() {
     }
     
     $('body').mousemove(function(event) {
-        $('.cursor').css('top', `${event.pageY}px`);
-        $('.cursor').css('left', `${event.pageX}px`);
+        $('.cursor').css('transform', `translate3d(${event.clientX}px, ${event.clientY}px, 0)`)
     })
 
     $('a, button').hover(function() {
