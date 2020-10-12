@@ -1,6 +1,7 @@
 body
 {
     background: #01141e;
+    cursor: none;
 }
 
 button
@@ -8,6 +9,29 @@ button
     outline: none!important;
 }
 
+.cursor
+{
+    width: 1px;
+    height: 1px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: red;
+    pointer-events: none;
+    z-index: 1000;
+    mix-blend-mode: exclusion;
+}
+
+.cursor .bg
+{
+    position: absolute;
+    background-color: #ffffff;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    
+}
 .navbar
 {
     padding-top: 30px;
@@ -27,6 +51,7 @@ button
     background-color: #000000;
     position: relative;
     transition: 0.5s;
+    cursor: none!important;
 }
 
 .btn-menu:before, .btn-menu:after, .btn-menu span
@@ -122,7 +147,6 @@ button
     font-weight: 700;
     font-size: 91px;
     color: inherit;
-    cursor: pointer;
 }
 
 .menu-list li .menu-item:hover
@@ -143,5 +167,10 @@ button
     top: 50%;
     font-weight: 100;
     transform: translateY(-50%) rotate(-90deg);
+}
+
+.screen 
+{
+    height: 100vh;
 }
 
