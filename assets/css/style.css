@@ -125,7 +125,7 @@ button
     position: fixed;
     top: 0;
     left: -100vw;
-    background-color: rgba(1, 20, 30, 0.7);
+    background-color: rgba(1, 20, 30, 0.99);
     padding-top: 135px;
     overflow: auto;
     z-index: 100;
