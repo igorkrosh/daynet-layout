@@ -6,7 +6,7 @@ $(document).ready(function () {
         animateClass: 'animate__animated'
     })
     wow.init();
-    
+    DisableScroll();
 })
 
 function SetCursor() {

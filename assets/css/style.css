@@ -3,6 +3,7 @@ body
     background: #00141e;
     color: #ffffff;
     cursor: none;
+    overflow: hidden;
 }
 
 button
@@ -349,6 +350,7 @@ a, button
     display: flex;
     justify-content: center;
     background-color: #011925;
+    transition: 0.5s;
 }
 
 .scroll-block button
@@ -471,4 +473,10 @@ a, button
 .slide-item
 {
 
+}
+
+.hidden
+{
+    opacity: 0;
+    pointer-events: none;
 }
