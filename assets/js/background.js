@@ -1,92 +1,113 @@
 import * as THREE from './lib/three.module.js';
 import { GLTFLoader } from './lib/GLTFLoader.js'; 
 
-let _camera, _scene, _renderer;
 let modelLoaderGLTF;
+let _scenes = {
+    'dayzy-background': {
+        scene: '',
+        camera: '',
+        renderer: '',
+        model: '',
+        node: ''
+    },
+    'dayzy-background-2': {
+        scene: '',
+        camera: '',
+        renderer: '',
+        model: '',
+        node: ''
+    }
+}
 
 let dayzy = {
-    model: {},
-    states: [
-        {
-            position: {
-                x: -0.45,
-                y: -7.35,
-                z: -3
-            },
-            rotation: {
-                x: 0,
-                y: -0.66,
-                z: -0.09
-            },
+    'dayzy-background': {
+        position: {
+            x: -0.45,
+            y: -7.35,
+            z: -3
         },
-        {
-            position: {
-                x: -5,
-                y: -9.79,
-                z: 3.34
-            },
-            rotation: {
-                x: 0,
-                y: -0.66,
-                z: -0.09
-            },
+        rotation: {
+            x: 0,
+            y: -0.66,
+            z: -0.09
         },
-        {
-            position: {
-                x: 1.14,
-                y: -9.79,
-                z: 3.34
-            },
-            rotation: {
-                x: 0,
-                y: -2.14,
-                z: 0.21
-            },
-        }
-    ]
-};
-
-let sceneWrapperId = 'dayzy-background'
-let sceneWrapperNode;
+    },
+    'dayzy-background-2': {
+        position: {
+            x: 0,
+            y: -9.79,
+            z: 0.34
+        },
+        rotation: {
+            x: 0,
+            y: -1.55,
+            z: -0.0
+        },
+    }
+}
 
 Init();
 Animate();
 
-function Init()
+function SetupScene(canvasId)
 {
-    modelLoaderGLTF = new GLTFLoader();
+    _scenes[canvasId].node = document.getElementById(canvasId);
 
-    _scene = new THREE.Scene();
+    //СОЗДАЕМ РЕНДЕР
+    _scenes[canvasId].renderer = new THREE.WebGLRenderer({
+        alpha: true, 
+        antialias: true,
+        canvas: document.getElementById(canvasId),
+    });
 
-    _camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    _camera.position.z = 10;
+    //СОЗДАЕМ КАМЕРУ
+    _scenes[canvasId].camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    _scenes[canvasId].camera.position.z = 10;
 
-    sceneWrapperNode = document.getElementById(sceneWrapperId);
+    _scenes[canvasId].scene = new THREE.Scene();
+
+    //ДОБАВЛЯЕМ СВЕТ НА СЦЕНУ
+    SetupLight(canvasId)
+
+    //НАСТРОЙКА РЕНДЕРА
+    _scenes[canvasId].renderer.setPixelRatio( window.devicePixelRatio );
+    _scenes[canvasId].renderer.setSize(_scenes[canvasId].node.offsetWidth, _scenes[canvasId].node.offsetHeight);
+}
+
+function LoadModels()
+{
+    modelLoaderGLTF.setPath('../../assets/models/');
+    modelLoaderGLTF.load('deer.glb', 
+        function (gltf) {
+
+            for (let canvasId of Object.keys(_scenes))
+            {
+                _scenes[canvasId].model = gltf.scene.clone();
+
+                _scenes[canvasId].model.traverse((o) => {
+                    if (o.isMesh) o.material = new THREE.MeshNormalMaterial();
+                });
+
+                _scenes[canvasId].model.position.x = dayzy[canvasId].position.x;
+                _scenes[canvasId].model.position.y = dayzy[canvasId].position.y;
+                _scenes[canvasId].model.position.z = dayzy[canvasId].position.z;
     
-    _renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
-    _renderer.setPixelRatio( window.devicePixelRatio );
-    _renderer.setSize(sceneWrapperNode.offsetWidth, sceneWrapperNode.offsetHeight);
-
-    SetLight();
-
-    LoadModels();
-
-    sceneWrapperNode.appendChild(_renderer.domElement);
-
-    window.addEventListener( 'resize', OnWindowResize, false );
+                _scenes[canvasId].model.rotation.x = dayzy[canvasId].rotation.x;
+                _scenes[canvasId].model.rotation.y = dayzy[canvasId].rotation.y;
+                _scenes[canvasId].model.rotation.z = dayzy[canvasId].rotation.z;
+                
+                _scenes[canvasId].scene.add( _scenes[canvasId].model );
+                
+                _scenes[canvasId].renderer.render( _scenes[canvasId].scene, _scenes[canvasId].camera );
+            }     
+        }
+    )
 }
 
-function Animate()
-{
-    requestAnimationFrame(Animate);
-
-    _renderer.render(_scene, _camera);
-}
-
-function SetLight()
+function SetupLight(canvasId)
 {
     let ambientLight = new THREE.AmbientLight(0x999999 );
-    _scene.add(ambientLight);
+    _scenes[canvasId].scene.add(ambientLight);
 
     let lights = [];
 
@@ -99,45 +120,42 @@ function SetLight()
     lights[2] = new THREE.DirectionalLight( 0x8200C9, 1 );
     lights[2].position.set( -0.75, -1, 0.5 );
 
-    _scene.add( lights[0] );
-    _scene.add( lights[1] );
-    _scene.add( lights[2] );
+    _scenes[canvasId].scene.add( lights[0] );
+    _scenes[canvasId].scene.add( lights[1] );
+    _scenes[canvasId].scene.add( lights[2] );
 }
 
-function LoadModels()
+function Init()
 {
-    modelLoaderGLTF.setPath('../../assets/models/');
-    modelLoaderGLTF.load('deer.glb', 
-        function (gltf) {
-            dayzy.model = gltf.scene;
-            _scene.add( gltf.scene );
+    modelLoaderGLTF = new GLTFLoader();
 
-            gltf.animations; 
-            gltf.scene; 
-            gltf.scenes; 
-            gltf.cameras; 
-            gltf.asset;
+    for (let id of Object.keys(_scenes))
+    {
+        SetupScene(id);
+    }
 
-            dayzy.model.traverse((o) => {
-                if (o.isMesh) o.material = new THREE.MeshNormalMaterial();
-            });
+    LoadModels();
 
-            dayzy.model.position.x = dayzy.states[0].position.x;
-            dayzy.model.position.y = dayzy.states[0].position.y;
-            dayzy.model.position.z = dayzy.states[0].position.z;
+    window.addEventListener( 'resize', OnWindowResize, false );
+}
 
-            dayzy.model.rotation.x = dayzy.states[0].rotation.x;
-            dayzy.model.rotation.y = dayzy.states[0].rotation.y;
-            dayzy.model.rotation.z = dayzy.states[0].rotation.z;
-        }
-    )
+function Animate()
+{
+    requestAnimationFrame(Animate);
+
+    for (let canvasId of Object.keys(_scenes))
+    {
+        _scenes[canvasId].renderer.render( _scenes[canvasId].scene, _scenes[canvasId].camera );
+    }
 }
 
 function OnWindowResize()
 {
-    _camera.aspect = window.innerWidth / window.innerHeight;
-    _camera.updateProjectionMatrix();
-
-    _renderer.setSize( sceneWrapperNode.offsetWidth, sceneWrapperNode.offsetHeight );
+    for (let canvasId of Object.keys(_scenes))
+    {
+        _scenes[canvasId].camera.aspect = window.innerWidth / window.innerHeight;
+        _scenes[canvasId].camera.updateProjectionMatrix();
+        console.log(_scenes[canvasId].node.offsetWidth)
+        _scenes[canvasId].renderer.setSize(window.innerWidth, window.innerHeight);
+    }
 }
-
