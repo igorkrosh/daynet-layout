@@ -6,6 +6,7 @@ $(document).ready(function () {
         animateClass: 'animate__animated'
     })
     wow.init();
+    
 })
 
 function SetCursor() {
@@ -61,3 +62,20 @@ function SetNavbarMenu() {
         }        
     })
 }
+
+
+$('.scroll-block button').on('click', function() {
+    let screenIndex = parseInt(window.scrollY / window.innerHeight);
+    let arrayScreens = $('.screen');
+
+    let scrollTop = arrayScreens[screenIndex + 1].offsetTop;
+
+    window.scrollTo({
+        top: scrollTop,
+        left: 0,
+        behavior: 'smooth'
+    })
+})
+
+
+
