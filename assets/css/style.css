@@ -10,6 +10,11 @@ button
     outline: none!important;
 }
 
+a, button
+{
+    cursor: none;
+}
+
 .cursor
 {
     width: 1px;
@@ -353,7 +358,88 @@ button
     margin: 10px 0;
 }
 
-.buttons-wrapper
+.second-screen .container
 {
-    display: flex;
+    position: relative;
+}
+
+.btn-follow
+{
+    height: 65px;
+    border: 1px solid #4da69a;
+    background: none;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 0 30px 0 90px;
+    letter-spacing: 3px;
+    position: relative;
+    line-height: 65px;
+}
+
+.btn-follow:after
+{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 60px;
+    left: 0;
+    top: 0;
+    transition: 0.5s;
+    background-color: rgba(77, 166, 154, 0.2);
+    border-right: 1px solid #4da69a;
+    z-index: -1;
+
+}
+
+.btn-follow:before
+{
+    content: url('../images/icons/btn-arrow.png');
+    position: absolute;
+    left: 10px;
+    top: 0;
+    z-index: 10;
+}
+
+.btn-follow:hover:after
+{
+    width: 100%;
+    background-color: rgba(77, 166, 154, 0.7);
+}
+
+.btn-follow:hover
+{
+    color: inherit;
+    text-decoration: none;
+}
+
+.second-screen .container
+{
+    height: 100%;
+    background: url('../images/background-lines.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.second-screen .btn-follow:nth-child(1)
+{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.second-screen .btn-follow:nth-child(2)
+{
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+
+.second-screen .btn-follow:nth-child(3)
+{
+    position: absolute;
+    top: 50%;
+    right: 0;
 }
