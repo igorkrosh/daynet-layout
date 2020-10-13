@@ -424,10 +424,7 @@ a, button
 
 .second-screen .btn-follow:nth-child(1)
 {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    display: inline-block;
 }
 
 .second-screen .btn-follow:nth-child(2)
@@ -442,4 +439,9 @@ a, button
     position: absolute;
     top: 50%;
     right: 0;
+}
+
+.second-screen .btn-wrapper
+{
+    text-align: center;
 }
