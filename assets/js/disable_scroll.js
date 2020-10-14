@@ -22,7 +22,7 @@ let lastScrollTop = 0;
 let startTouch = null;
 let blockTransition = false;
 
-function PreventDefaultForScroll(e) // Функция вызывается для event'ов DOMMouseScroll, touchmove, onwheel, wheel, mousewheel
+function PreventDefaultForScroll(e) // Функция вызывается для event'ов DOMMouseScroll, onwheel, wheel, mousewheel
 {
   e.preventDefault();
 
@@ -59,7 +59,7 @@ function PreventDefaultForScrollKeys(e) // Функция вызывается �
   }
 }
 
-function PreventDefaultForTouch(e)
+function PreventDefaultForTouch(e) // Функция вызывается для event'а touchmove
 {
   e.preventDefault();
   ScrollHandler();

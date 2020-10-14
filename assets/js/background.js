@@ -46,9 +46,54 @@ let dayzy = {
     ]
 };
 
+let directionsStates = {
+    '#reputation': {
+        position: {
+            x: 5,
+            y: -9.74,
+            z: 0.34
+        },
+        rotation: {
+            x: 0,
+            y: -3,
+            z: 0.5
+        },
+    },
+    '#marketing': {
+        position: {
+            x: 7,
+            y: -8,
+            z: 0.34
+        },
+        rotation: {
+            x: 0,
+            y: -3,
+            z: 0
+        },
+    },
+    '#design': {
+        position: {
+            x: -8,
+            y: -9,
+            z: 0.4
+        },
+        rotation: {
+            x: 0,
+            y: -0.2,
+            z: 0
+        },
+    }
+}
 
 let sceneWrapperId = 'dayzy-background'
 let sceneWrapperNode;
+
+let modelInDirectionState = false;
+
+let changeStateProgress = {progress: 0};
+let tweenDirection = new TWEEN.Tween(changeStateProgress).to({progress: 100}, 500);
+
+let stateIndex = parseInt(window.scrollY / window.innerHeight);
 
 Init()
 Animate()
@@ -81,11 +126,15 @@ function Animate()
 {
     requestAnimationFrame(Animate);
 
+    TWEEN.update();
+
     _renderer.render(_scene, _camera);
 }
 
 function LoadModels()
 {
+    //let stateIndex = parseInt(window.scrollY / window.innerHeight);
+
     modelLoaderGLTF.setPath('../assets/models/');
     modelLoaderGLTF.load('deer.glb', 
         function (gltf) {
@@ -102,13 +151,13 @@ function LoadModels()
                 if (o.isMesh) o.material = new THREE.MeshNormalMaterial();
             });
 
-            dayzy.model.position.x = dayzy.states[0].position.x;
-            dayzy.model.position.y = dayzy.states[0].position.y;
-            dayzy.model.position.z = dayzy.states[0].position.z;
+            dayzy.model.position.x = dayzy.states[stateIndex].position.x;
+            dayzy.model.position.y = dayzy.states[stateIndex].position.y;
+            dayzy.model.position.z = dayzy.states[stateIndex].position.z;
 
-            dayzy.model.rotation.x = dayzy.states[0].rotation.x;
-            dayzy.model.rotation.y = dayzy.states[0].rotation.y;
-            dayzy.model.rotation.z = dayzy.states[0].rotation.z;
+            dayzy.model.rotation.x = dayzy.states[stateIndex].rotation.x;
+            dayzy.model.rotation.y = dayzy.states[stateIndex].rotation.y;
+            dayzy.model.rotation.z = dayzy.states[stateIndex].rotation.z;
         }
     )
     
@@ -143,35 +192,26 @@ function SetLight()
     _scene.add( lights[2] );
 }
 
-function ModelChangeState(model, states, progress)
+function ModelChangeState(model, state, progress)
 {
-    let stateIndex = parseInt(progress);
+    model.position.x = model.position.x + (state.position.x - model.position.x) * progress;
+    model.position.y = model.position.y + (state.position.y - model.position.y) * progress;
+    model.position.z = model.position.z + (state.position.z - model.position.z) * progress;
 
-    if (stateIndex >= states.length - 1)
-    {
-        return;
-    }
-
-    progress = progress % 1;
-
-    model.position.x = states[stateIndex].position.x + (states[stateIndex + 1].position.x - states[stateIndex].position.x) * progress;
-    model.position.y = states[stateIndex].position.y + (states[stateIndex + 1].position.y - states[stateIndex].position.y) * progress;
-    model.position.z = states[stateIndex].position.z + (states[stateIndex + 1].position.z - states[stateIndex].position.z) * progress;
-
-    model.rotation.x = states[stateIndex].rotation.x + (states[stateIndex + 1].rotation.x - states[stateIndex].rotation.x) * progress;
-    model.rotation.y = states[stateIndex].rotation.y + (states[stateIndex + 1].rotation.y - states[stateIndex].rotation.y) * progress;
-    model.rotation.z = states[stateIndex].rotation.z + (states[stateIndex + 1].rotation.z - states[stateIndex].rotation.z) * progress;  
+    model.rotation.x = model.rotation.x + (state.rotation.x - model.rotation.x) * progress;
+    model.rotation.y = model.rotation.y + (state.rotation.y - model.rotation.y) * progress;
+    model.rotation.z = model.rotation.z + (state.rotation.z - model.rotation.z) * progress;  
 }
 
 
 
 window.addEventListener('scroll', function(e) {
     let scrollProcess = window.scrollY / window.innerHeight;
-    console.log(window.scrollY)
+    let stateIndex = parseInt(scrollProcess);
+    
+    let progress = scrollProcess % 1;
 
-    ModelChangeState(dayzy.model, dayzy.states, scrollProcess);
-
-    let btnClickDown = document.querySelector('.scroll-block button');
+    let btnClickDown = document.querySelector('.scroll-block');
 
     if (parseInt(scrollProcess + 0.3) >= document.querySelectorAll('.screen').length - 1)
     {
@@ -184,6 +224,75 @@ window.addEventListener('scroll', function(e) {
             btnClickDown.classList.remove('hidden');
         }
     }
+
+    if (moveDown)
+    {
+        if (stateIndex >= dayzy.states.length - 1)
+        {
+            return;
+        }
+
+        if (modelInDirectionState)
+        {
+            ExitInDirectionState()
+        }
+
+        ModelChangeState(dayzy.model, dayzy.states[stateIndex + 1], progress);
+    }
+    else
+    {
+        progress = 1 - progress;
+
+        if (modelInDirectionState)
+        {
+            ExitInDirectionState()
+        }
+
+        ModelChangeState(dayzy.model, dayzy.states[stateIndex], progress);
+    }
 })
+
+$('.second-screen .btn-follow').on('click', function () {
+    let target = $(this).attr('data-target');
+    
+    sceneWrapperNode.classList.add('active');
+
+    tweenDirection.onUpdate(() => {
+        ModelChangeState(dayzy.model, directionsStates[target], changeStateProgress.progress / 100);
+    }).onComplete(() => {
+        changeStateProgress.progress = 0;
+        modelInDirectionState = true;
+    });
+    tweenDirection.start();  
+})
+
+$('.direction-popup .btn-back').on('click', function() {
+    document.querySelector('.direction-popup.active').classList.remove('active');
+    tweenDirection.onUpdate(() => {
+        ModelChangeState(dayzy.model, dayzy.states[stateIndex], changeStateProgress.progress / 100);
+    }).onComplete(() => {
+        changeStateProgress.progress = 0;
+        ExitInDirectionState();
+    });
+    tweenDirection.start();
+})
+
+function ExitInDirectionState()
+{
+    if (document.querySelector('.direction-popup').classList.contains('active'))
+    {
+        document.querySelector('.direction-popup.active').classList.remove('active');
+    }
+    $('.direction-popup.active').removeClass('active');
+    if (document.querySelector('.navbar').classList.contains('active'))
+    {
+        document.querySelector('.navbar').classList.remove('active');
+    }
+    
+    sceneWrapperNode.classList.remove('active');
+    document.querySelector('.second-screen .main-container').classList.remove('active');
+    
+    modelInDirectionState = false;
+}
 
 

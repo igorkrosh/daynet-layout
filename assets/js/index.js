@@ -1,6 +1,8 @@
 $(document).ready(function () {
     SetCursor();
     SetNavbarMenu();
+    SetScrollBtn();
+    SetDirectionBtn()
     
     let wow = new WOW({
         animateClass: 'animate__animated'
@@ -48,6 +50,9 @@ function SetNavbarMenu() {
             $('.navbar-menu').addClass('animate__animated');
         }
 
+        $('.direction-popup').removeClass('active');
+        $('.navbar').removeClass('active');
+
         if ($(this).hasClass('active'))
         {
             $(this).removeClass('active');
@@ -64,18 +69,33 @@ function SetNavbarMenu() {
 }
 
 
-$('.scroll-block button').on('click', function() {
-    let screenIndex = parseInt(window.scrollY / window.innerHeight);
-    let arrayScreens = $('.screen');
-
-    let scrollTop = arrayScreens[screenIndex + 1].offsetTop;
-
-    window.scrollTo({
-        top: scrollTop,
-        left: 0,
-        behavior: 'smooth'
+function SetScrollBtn()
+{
+    $('.scroll-block button').on('click', function() {
+        let screenIndex = parseInt(window.scrollY / window.innerHeight);
+        let arrayScreens = $('.screen');
+    
+        let scrollTop = arrayScreens[screenIndex + 1].offsetTop;
+    
+        window.scrollTo({
+            top: scrollTop,
+            left: 0,
+            behavior: 'smooth'
+        })
     })
-})
+}
+
+function SetDirectionBtn()
+{
+    $('.second-screen .btn-follow').on('click', function () {
+        let target = $(this).attr('data-target');
+        $(target).addClass('active')
+        $('.navbar').addClass('active');
+        $('.second-screen .main-container').addClass('active');
+    })  
+}
+
+
 
 
 

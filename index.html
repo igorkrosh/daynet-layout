@@ -82,15 +82,49 @@
     </section>
 
     <section class="screen second-screen">
-        <div class="container">
+        <div class="container main-container">
             <div class="btn-wrapper">
-                <a class="btn-follow wow animate__fadeInDownBig" data-wow-duration="1s">Репутация</a>
+                <a class="btn-follow wow animate__fadeInDownBig" data-wow-duration="1s" data-target="#reputation">Репутация</a>
             </div>
-            
-            <a class="btn-follow wow animate__fadeInLeftBig" data-wow-duration="1s">Маркетинг</a>
-            <a class="btn-follow wow animate__fadeInRightBig" data-wow-duration="1s">Дизайн</a>
+            <a class="btn-follow wow animate__fadeInLeftBig" data-wow-duration="1s" data-target="#marketing">Маркетинг</a>
+            <a class="btn-follow wow animate__fadeInRightBig" data-wow-duration="1s" data-target="#design">Дизайн</a>
         </div>
-        <canvas id="dayzy-background-2"></canvas>
+        <div class="direction-popup" id="reputation">
+            <div class="container">
+                <div class="wrapper">
+                    <button class="btn-back"></button>
+                    <span class="title sm">Репутация</span>
+                    <p>
+                        SERM (search engine reputation management) — управление
+                        репутацией в выдаче поисковых систем. Цель — увеличение
+                        числа контролируемых ресурсов в топе поисковой выдачи,
+                        разработка и продвижение позитивных материалов,
+                        вытеснение негатива с первых страниц выдачи.
+                    </p>
+                    <a class="btn-follow">Перейти</a>
+                </div>
+            </div>
+        </div>
+        <div class="direction-popup" id="marketing">
+            <div class="wrapper">
+                <button class="btn-back"></button>
+                <span class="title sm">Маркетинг</span>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit, quas eum. Voluptas quisquam, nostrum deleniti aut labore unde cum, fugit molestiae vitae, blanditiis laborum optio at nemo iste. Ipsum, ratione!
+                </p>
+                <a class="btn-follow">Перейти</a>
+            </div>
+        </div>
+        <div class="direction-popup" id="design">
+            <div class="wrapper">
+                <button class="btn-back"></button>
+                <span class="title sm">Дизайн</span>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit, quas eum. Voluptas quisquam, nostrum deleniti aut labore unde cum, fugit molestiae vitae, blanditiis laborum optio at nemo iste. Ipsum, ratione!
+                </p>
+                <a class="btn-follow">Перейти</a>
+            </div>
+        </div>
     </section>
     <section class="screen">
         <div class="container">
@@ -117,6 +151,7 @@
     <script src="assets/js/lib/bootstrap.min.js"></script>
     <script src="assets/js/lib/wow.min.js"></script>
     <script src="assets/js/lib/owl.carousel.min.js"></script>
+    <script src="assets/js/lib/Tween.js"></script>  
     <script src="assets/js/disable_scroll.js"></script>
     <script src="assets/js/index.js"></script>
     <script type="module" src="assets/js/background.js"></script>

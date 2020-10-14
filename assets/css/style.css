@@ -13,7 +13,7 @@ button
 
 a, button
 {
-    cursor: none;
+    cursor: none!important;
 }
 
 .cursor
@@ -23,7 +23,7 @@ a, button
     position: fixed;
     background-color: red;
     pointer-events: none;
-    z-index: 1000;
+    z-index: 5000;
     mix-blend-mode: exclusion;
 }
 
@@ -54,8 +54,14 @@ a, button
     left: 0;
     top: 0;
     width: 100vw;
+    z-index: 500;
+    transition: 0.5s;
+}
+
+.navbar.active
+{
     z-index: 100;
-    z-index: 1000;
+    opacity: 0;
 }
 
 .btn-menu
@@ -135,7 +141,7 @@ a, button
     background-color: rgba(1, 20, 30, 0.99);
     padding-top: 135px;
     overflow: auto;
-    z-index: 100;
+    z-index: 400;
 }
 
 
@@ -276,6 +282,12 @@ a, button
     z-index: 1;
     top: 0;
     left: 0;
+    pointer-events: none;
+}
+
+#dayzy-background.active
+{
+    z-index: 201;
 }
 
 .screen .container
@@ -346,7 +358,7 @@ a, button
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 300;
     display: flex;
     justify-content: center;
     background-color: #011925;
@@ -363,6 +375,12 @@ a, button
 .second-screen .container
 {
     position: relative;
+    transition: 0.5s;
+}
+
+.second-screen .main-container.active
+{
+    opacity: 0;
 }
 
 .btn-follow
@@ -378,6 +396,7 @@ a, button
     letter-spacing: 3px;
     position: relative;
     line-height: 65px;
+    display: inline-block;
 }
 
 .btn-follow:after
@@ -445,6 +464,7 @@ a, button
 
 .second-screen .btn-wrapper
 {
+    margin-top: 30px;
     text-align: center;
 }
 
@@ -479,4 +499,100 @@ a, button
 {
     opacity: 0;
     pointer-events: none;
+}
+
+#reputation
+{
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    background: url('../images/bg/reputation.png');
+    background-repeat: no-repeat;
+    z-index: 200;
+    padding: 70px 0;
+    transition: 0.5s;
+}
+#reputation.active
+{
+    top: 0;
+}
+.btn-back
+{
+    height: 51px;
+    width: 51px;
+    background: url('../images/icons/btn-back.png');
+    border: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.title.sm
+{
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+
+#reputation .wrapper
+{
+    max-width: 500px;
+}
+
+.wrapper p
+{
+    font-size: 18px;
+    margin: 25px 0;
+}
+
+#marketing
+{
+    position: fixed;
+    width: 800px;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    z-index: 500;
+    transition: 0.5s;
+    background: url('../images/bg/marketing.png');
+    background-repeat: no-repeat;
+    padding: 80px 80px 80px 150px;
+    display: flex;
+    align-items: center;
+}
+
+#marketing.active
+{
+    left: 0;
+}
+
+#marketing .title, #design .title
+{
+    margin-top: 50px;
+    display: block;
+}
+
+#marketing .btn-follow, #design .btn-follow
+{
+    margin-top: 50px;
+}
+
+#design
+{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    transition: 0.5s;
+    width: 800px;
+    height: 100%;
+    background: url('../images/bg/marketing.png');
+    background-repeat: no-repeat;
+    padding: 80px 150px 80px 80px;
+    display: flex;
+    align-items: center;
+    z-index: 500;
+}
+
+#design.active
+{
+    right: 0;
 }
