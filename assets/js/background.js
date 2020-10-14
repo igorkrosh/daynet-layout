@@ -133,8 +133,6 @@ function Animate()
 
 function LoadModels()
 {
-    //let stateIndex = parseInt(window.scrollY / window.innerHeight);
-
     modelLoaderGLTF.setPath('../assets/models/');
     modelLoaderGLTF.load('deer.glb', 
         function (gltf) {
@@ -207,8 +205,8 @@ function ModelChangeState(model, state, progress)
 
 window.addEventListener('scroll', function(e) {
     let scrollProcess = window.scrollY / window.innerHeight;
-    let stateIndex = parseInt(scrollProcess);
-    
+    stateIndex = parseInt(scrollProcess);
+    console.log(`Scroll - ${stateIndex}`)
     let progress = scrollProcess % 1;
 
     let btnClickDown = document.querySelector('.scroll-block');
@@ -269,9 +267,11 @@ $('.second-screen .btn-follow').on('click', function () {
 $('.direction-popup .btn-back').on('click', function() {
     document.querySelector('.direction-popup.active').classList.remove('active');
     tweenDirection.onUpdate(() => {
+        
         ModelChangeState(dayzy.model, dayzy.states[stateIndex], changeStateProgress.progress / 100);
     }).onComplete(() => {
         changeStateProgress.progress = 0;
+        console.log(`TWEEN Complete - ${stateIndex}`)
         ExitInDirectionState();
     });
     tweenDirection.start();
