@@ -55,6 +55,18 @@ let dayzy = {
         },
         {
             position: {
+                x: 0,
+                y: -9.79,
+                z: 0.34
+            },
+            rotation: {
+                x: 0,
+                y: -1.55,
+                z: 0
+            },
+        },
+        {
+            position: {
                 x: 1.14,
                 y: -9.79,
                 z: 3.34
@@ -117,6 +129,8 @@ let changeStateProgress = {progress: 0};
 let tweenDirection = new TWEEN.Tween(changeStateProgress).to({progress: 100}, 500);
 
 let stateIndex = parseInt(window.scrollY / window.innerHeight);
+
+let hiddenScreen = 2; // На каком экрана нужно спрятать 3d-background;
 
 //*ПЕРЕМЕННЫХ 3D-BACKGROUND*//
 
@@ -556,6 +570,19 @@ function ExitInDirectionState()
 $(window).on('scroll', function(e) {
     let scrollProcess = window.scrollY / window.innerHeight;
     stateIndex = parseInt(scrollProcess);
+
+    let arrayScreens = $('.screen');
+    let hiddenScreenTop = arrayScreens[hiddenScreen].offsetTop;
+    let hiddenScreenHeight = arrayScreens[hiddenScreen].offsetHeight;
+
+    if (window.scrollY > hiddenScreenTop - hiddenScreenHeight  && window.scrollY < hiddenScreenTop + hiddenScreenHeight)
+    {
+        $(sceneWrapperNode).addClass('hidden');
+    }
+    else if ($(sceneWrapperNode).hasClass('hidden'))
+    {
+        $(sceneWrapperNode).removeClass('hidden');
+    }
 
     OnScrollBackground(scrollProcess);
 });

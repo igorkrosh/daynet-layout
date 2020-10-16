@@ -283,11 +283,17 @@ a, button
     top: 0;
     left: 0;
     pointer-events: none;
+    transition: 0.5s;
 }
 
 #dayzy-background.active
 {
     z-index: 201;
+}
+
+#dayzy-background.hidden
+{
+    opacity: 0;
 }
 
 .screen .container
@@ -595,4 +601,11 @@ a, button
 #design.active
 {
     right: 0;
+}
+
+.hide-3d
+{
+    background: #00141e;
+    z-index: 2100;
+    position: relative;
 }
