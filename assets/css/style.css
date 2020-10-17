@@ -740,3 +740,37 @@ a, button
     text-align: center;
     margin-top: 35px;
 }
+
+.about-us .col-text p:first-child
+{
+    margin-top: 100px;
+    display: block;
+}
+
+.about-us .container
+{
+    height: 100%;
+    background: url(../images/bg/about-us.png) no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+}
+
+.about-us .text-wrapper
+{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 100;
+}
+
+.about-us .text-wrapper .link
+{
+    width: 165px;
+}
+
+.about-us .text-wrapper p:nth-child(2)
+{
+    color: #93abb4;
+    margin-bottom: 40px;
+}
