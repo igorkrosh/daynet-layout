@@ -858,7 +858,7 @@ a, button, input
 .like-chat
 {
     position: absolute;
-    top: 50%;
+    top: 15%;
     right: 37%;
     z-index: 5;
     color: #ffffff;
@@ -866,7 +866,6 @@ a, button, input
     text-transform: uppercase;
     font-weight: 900;
     width: 300px;
-    transform: translateY(-60%);
 }
 
 footer
