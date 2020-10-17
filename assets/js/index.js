@@ -190,7 +190,7 @@ function SetCursor() // Устанавливает кастомный курсо
         $('.cursor').css('transform', `translate3d(${event.clientX}px, ${event.clientY}px, 0)`)
     })
 
-    $("a, button").on(
+    $("a, button, input").on(
     {
         mouseenter: function() 
         {

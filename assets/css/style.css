@@ -11,7 +11,7 @@ button
     outline: none!important;
 }
 
-a, button
+a, button, input
 {
     cursor: none!important;
 }
@@ -299,6 +299,7 @@ a, button
 .screen .container
 {
     z-index: 10;
+    position: relative;
 }
 
 .slogan
@@ -743,8 +744,13 @@ a, button
 .about-us .container
 {
     height: 100%;
+
+}
+
+.about-us
+{
     background: url(../images/bg/about-us.png) no-repeat;
-    background-position-x: right;
+    background-position-x: 65%;
     background-position-y: center;
 }
 
@@ -778,4 +784,133 @@ a, button
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.contact-form 
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.contact-form input
+{
+    width: 400px;
+    height: 50px;
+    margin-bottom: 25px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #4da69a;
+    color: #ffffff;
+    font-weight: 500;
+}
+.contact-form input::placeholder
+{
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.contacts-wrapper a
+{
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.contacts-wrapper
+{
+    margin-top: 35px;
+}
+
+.screen.contacts .container, .screen.contacts .row
+{
+    height: 100%;
+}
+
+.screen.contacts .col-contacts
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.screen.contacts .col-contacts .btn-follow
+{
+    width: 330px;
+}
+
+.screen.contacts
+{
+    position: relative;
+}
+
+.screen.contacts:before
+{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: #4da69a;
+    z-index: 3;
+}
+
+.like-chat
+{
+    position: absolute;
+    top: 50%;
+    right: 37%;
+    z-index: 5;
+    color: #ffffff;
+    font-size: 90px;
+    text-transform: uppercase;
+    font-weight: 900;
+    width: 300px;
+    transform: translateY(-60%);
+}
+
+footer
+{
+    background: #ffffff;
+    position: relative;
+    z-index: 5;
+    color: black;
+    height: 100px;
+}
+
+footer .container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer .contact
+{
+    color: #000000;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+footer .contact img
+{
+    margin-right: 15px;
+}
+
+.copyright
+{
+    color: #000000;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.copyright a
+{
+    color: #4da69a;
+}
+
+.copyright a:hover
+{
+    text-decoration: none;
 }
