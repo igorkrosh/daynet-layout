@@ -138,10 +138,11 @@ $(document).ready(Core)
 
 function Core() // Инизиализация осовных компонентов 
 {
-    SetCursor(); // Инициализация кастомного курсора
     SetNavbarMenu(); // Инициализация бокового меню сайта
     SetScrollBtn(); // Инициализация кнопки Scroll
     SetDirectionBtn(); // Инициализация кнопок направлений компании на втором скролле
+    SetSlickCases();
+    SetSlickDots();
 
     // Инициализация WOW.JS 
     let wow = new WOW({
@@ -165,6 +166,12 @@ function Core() // Инизиализация осовных компонент�
 
     Init();
     Animate();
+
+    //! ВАЖНО: Курсор должен инициализироваться после всех остальных функций создающих элементы на странице. 
+    //! В противном случае на новообразовавшиеся элементы <a> и <button> не будут повешаны обработчики событий mouseenter и mouseleave, 
+    //! которые видоизменяют курсор при наведении на интерактивные объекты.
+    SetCursor(); // Инициализация кастомного курсора
+
 }
 
 //*БЛОК UI/UX СКРИПТОВ*//
@@ -183,19 +190,23 @@ function SetCursor() // Устанавливает кастомный курсо
         $('.cursor').css('transform', `translate3d(${event.clientX}px, ${event.clientY}px, 0)`)
     })
 
-    $('a, button').hover(function() {
-        let itemHeight = $(this).height() * 1.5;
-        $('.cursor .bg').animate({
-            height: itemHeight + 'px',
-            width: itemHeight + 'px'
-        }, animateOptions)
-    });
-
-    $('a, button').mouseleave(function() {
-        $('.cursor .bg').animate({
-            height: initCursorHeight + 'px',
-            width: initCursotWidth + 'px'
-        }, animateOptions)
+    $("a, button").on(
+    {
+        mouseenter: function() 
+        {
+            let itemHeight = $(this).height() * 1.5;
+            $('.cursor .bg').animate({
+                height: itemHeight + 'px',
+                width: itemHeight + 'px'
+            }, animateOptions)
+        },
+        mouseleave: function()
+        {
+            $('.cursor .bg').animate({
+                height: initCursorHeight + 'px',
+                width: initCursotWidth + 'px'
+            }, animateOptions)
+        }
     });
 }
 
@@ -277,6 +288,39 @@ function SetDirectionBtn() // Установка кнопок направлен
         });
         tweenDirection.start();
     })
+}
+
+function SetSlickCases()
+{
+    $(".slick-cases-wrapper").slick({
+
+        items: 1,
+        vertical: false,
+        prevArrow: '<button type="button" class="btn-slider slider-prev"></button>',
+        nextArrow: '<button type="button" class="btn-slider slider-next"></button>',
+        appendArrows: $('.slick-cases-nav'),
+        dots: true,
+        appendDots: $('.slick-cases-dots'),
+        dotsClass: 'slider-dots',
+        fade: true,
+        speed: 1000,
+        infinite: true,
+    });
+
+}
+
+function SetSlickDots()
+{
+    let dots = $('.slick-cases-dots .slider-dots button');
+
+    for (let dot of dots)
+    {
+        let slideId = $(dot).attr('aria-controls');
+
+        let slideTitle = $(`#${slideId} .slide-title span`).text();
+        
+        $( `<span>${slideTitle}</span>` ).insertBefore( dot );
+    }
 }
 
 //*КОНЕЦ БЛОКА UI/UX СКРИПТОВ*//
