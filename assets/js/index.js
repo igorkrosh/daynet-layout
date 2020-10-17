@@ -130,7 +130,7 @@ let tweenDirection = new TWEEN.Tween(changeStateProgress).to({progress: 100}, 50
 
 let stateIndex = parseInt(window.scrollY / window.innerHeight);
 
-let hiddenScreen = 2; // На каком экрана нужно спрятать 3d-background;
+let hiddenScreen = [2, 4]; // На каком экрана нужно спрятать 3d-background;
 
 //*ПЕРЕМЕННЫХ 3D-BACKGROUND*//
 
@@ -166,8 +166,6 @@ function Core() // Инизиализация осовных компонент�
 
     Init();
     Animate();
-
-    CheckHideScreen();
 
     //! ВАЖНО: Курсор должен инициализироваться после всех остальных функций создающих элементы на странице. 
     //! В противном случае на новообразовавшиеся элементы <a> и <button> не будут повешаны обработчики событий mouseenter и mouseleave, 
@@ -587,10 +585,29 @@ function OnScrollBackground(scrollProcess)
     {
         if (stateIndex >= dayzy.states.length - 1) { return; }
 
+        if (hiddenScreen.indexOf(stateIndex + 1) != -1) { return; }
+
+        if (hiddenScreen.indexOf(stateIndex) != -1)
+        {
+            ModelChangeState(dayzy.model, dayzy.states[stateIndex + 1], 1);
+            return;
+        }
+
         ModelChangeState(dayzy.model, dayzy.states[stateIndex + 1], progress);
     }
     else
     {
+        if (hiddenScreen.indexOf(stateIndex + 1) != -1) 
+        {
+            ModelChangeState(dayzy.model, dayzy.states[stateIndex], 1); 
+            return; 
+        }
+
+        if (hiddenScreen.indexOf(stateIndex) != -1)
+        {
+            return;
+        }
+
         progress = 1 - progress;
 
         ModelChangeState(dayzy.model, dayzy.states[stateIndex], progress);
@@ -609,22 +626,6 @@ function ExitInDirectionState()
     modelInDirectionState = false;
 }
 
-function CheckHideScreen()
-{
-    let arrayScreens = $('.screen');
-    let hiddenScreenTop = arrayScreens[hiddenScreen].offsetTop;
-    let hiddenScreenHeight = arrayScreens[hiddenScreen].offsetHeight;
-
-    if (window.scrollY > hiddenScreenTop - hiddenScreenHeight  && window.scrollY < hiddenScreenTop + hiddenScreenHeight)
-    {
-        $(sceneWrapperNode).addClass('hidden');
-    }
-    else if ($(sceneWrapperNode).hasClass('hidden'))
-    {
-        $(sceneWrapperNode).removeClass('hidden');
-    }
-}
-
 //*КОНЕЦ БЛОКА РАБОТЫ С 3D-BACKGROUND*//
 
 //*ОБРАБОТЧИКИ СОБЫТИЙ ЭКРАНА*//
@@ -632,8 +633,6 @@ function CheckHideScreen()
 $(window).on('scroll', function(e) {
     let scrollProcess = window.scrollY / window.innerHeight;
     stateIndex = parseInt(scrollProcess);
-
-    CheckHideScreen();
 
     OnScrollBackground(scrollProcess);
 });
