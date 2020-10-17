@@ -134,7 +134,7 @@ let hiddenScreen = 2; // На каком экрана нужно спрятат�
 
 //*ПЕРЕМЕННЫХ 3D-BACKGROUND*//
 
-$(document).ready(Core)
+$(document).ready(Core);
 
 function Core() // Инизиализация осовных компонентов 
 {
@@ -166,6 +166,8 @@ function Core() // Инизиализация осовных компонент�
 
     Init();
     Animate();
+
+    CheckHideScreen();
 
     //! ВАЖНО: Курсор должен инициализироваться после всех остальных функций создающих элементы на странице. 
     //! В противном случае на новообразовавшиеся элементы <a> и <button> не будут повешаны обработчики событий mouseenter и mouseleave, 
@@ -607,14 +609,8 @@ function ExitInDirectionState()
     modelInDirectionState = false;
 }
 
-//*КОНЕЦ БЛОКА РАБОТЫ С 3D-BACKGROUND*//
-
-//*ОБРАБОТЧИКИ СОБЫТИЙ ЭКРАНА*//
-
-$(window).on('scroll', function(e) {
-    let scrollProcess = window.scrollY / window.innerHeight;
-    stateIndex = parseInt(scrollProcess);
-
+function CheckHideScreen()
+{
     let arrayScreens = $('.screen');
     let hiddenScreenTop = arrayScreens[hiddenScreen].offsetTop;
     let hiddenScreenHeight = arrayScreens[hiddenScreen].offsetHeight;
@@ -627,6 +623,17 @@ $(window).on('scroll', function(e) {
     {
         $(sceneWrapperNode).removeClass('hidden');
     }
+}
+
+//*КОНЕЦ БЛОКА РАБОТЫ С 3D-BACKGROUND*//
+
+//*ОБРАБОТЧИКИ СОБЫТИЙ ЭКРАНА*//
+
+$(window).on('scroll', function(e) {
+    let scrollProcess = window.scrollY / window.innerHeight;
+    stateIndex = parseInt(scrollProcess);
+
+    CheckHideScreen();
 
     OnScrollBackground(scrollProcess);
 });
