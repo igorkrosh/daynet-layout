@@ -283,7 +283,7 @@ a, button, input
     top: 0;
     left: 0;
     pointer-events: none;
-    transition: 0.5s;
+    
 }
 
 #dayzy-background.active
@@ -342,7 +342,7 @@ a, button, input
 .pr-text
 {
     margin-top: auto;
-    margin-bottom: -70px;
+    margin-bottom: -35px;
     font-size: 16px;
     max-width: 300px;
     font-weight: 100;
@@ -859,7 +859,7 @@ a, button, input
 {
     position: absolute;
     top: 15%;
-    right: 37%;
+    left: 47%;
     z-index: 5;
     color: #ffffff;
     font-size: 90px;

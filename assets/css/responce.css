@@ -1,0 +1,120 @@
+@media (max-width: 1200px)
+{
+    #marketing, #design
+    {
+        width: 600px;
+        padding: 80px;
+    }
+
+    .slick-cases-wrapper .slide-title
+    {
+        font-size: 18px;
+    }
+
+    .slick-cases-wrapper .block-text p
+    {
+        font-size: 16px;
+    }
+
+    .menu-list li .menu-item
+    {
+        font-size: 72px;
+    }
+}
+
+@media (max-width: 992px)
+{
+    .slogan h1
+    {
+        font-size: 78px;
+    }
+
+    .slogan
+    {
+        max-width: 370px;
+    }
+
+    #marketing, #design
+    {
+        width: 500px;
+        padding: 80px;
+    }
+
+    .btn-follow
+    {
+        font-size: 22px;
+    }
+
+    .slick-cases-wrapper .col-text
+    {
+        padding-right: 300px;
+        padding-top: 30px;
+    }
+
+    .slide-item .block-image
+    {
+        padding-right: 300px;
+        
+    }
+    .slide-item .block-image img
+    {
+        width: 300px;
+        margin: auto;
+    }
+
+    .scroll-block button img
+    {
+        height: 80px;
+    }
+
+    .about-us .text-wrapper
+    {
+        height: auto;
+    }
+
+    .title
+    {
+        font-size: 47px;
+        letter-spacing: 10px;
+    }
+
+    .contact-form input
+    {
+        width: 250px;
+    }
+
+    .screen.contacts .col-contacts .btn-follow
+    {
+        width: 250px;
+        padding: 0 0px 0 70px;
+    }
+}
+
+@media(max-width: 768px)
+{
+    .btn-follow
+    {
+        font-size: 20px;
+        padding: 0 15px 0 75px;
+    }
+
+    .slick-cases-wrapper .block-text p
+    {
+        font-size: 15px;
+    }
+
+    .slick-cases-wrapper .col-text
+    {
+        padding-right: 15px;
+    }
+
+    .slick-cases-dots
+    {
+        display: none;
+    }
+
+    .slide-item .block-image
+    {
+        padding-right: 0;
+    }
+}
