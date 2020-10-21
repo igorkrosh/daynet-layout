@@ -41,6 +41,7 @@ a, button, input
 .screen 
 {
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     padding-bottom: 100px;
     padding-top: 80px;
     position: relative;

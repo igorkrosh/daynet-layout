@@ -143,6 +143,7 @@ function Core() // Инизиализация осовных компонент�
     SetDirectionBtn(); // Инициализация кнопок направлений компании на втором скролле
     SetSlickCases();
     SetSlickDots();
+    SetVH();
 
     // Инициализация WOW.JS 
     let wow = new WOW({
@@ -321,6 +322,12 @@ function SetSlickDots()
         
         $( `<span>${slideTitle}</span>` ).insertBefore( dot );
     }
+}
+
+function SetVH()
+{
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
 
 //*КОНЕЦ БЛОКА UI/UX СКРИПТОВ*//
@@ -640,6 +647,7 @@ $(window).on('scroll', function(e) {
 $(window).on('resize', function(e) {
     OnWindowResize();
     OnResizeSlider();
+    SetVH();
 })
 
 //*КОНЕЦ ОБРАБОТЧИКОВ СОБЫТИЙ ЭКРАНА*//
