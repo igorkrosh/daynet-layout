@@ -155,3 +155,211 @@
         padding: 10px 0;
     }
 }
+
+@media(max-width: 576px)
+{
+    #design
+    {
+        right: -650px;
+    }
+
+    #marketing
+    {
+        left: -650px;
+    }
+    
+    #reputation
+    {
+        top: -650px;
+    }
+
+    .scroll-block
+    {
+        display: none;
+    }
+
+    .navbar-brand img
+    {
+        height: 30px;
+    }
+
+    .menu-list
+    {
+        padding-left: 0;
+    }
+
+    .menu-list li .menu-item
+    {
+        font-size: 36px;
+    }
+
+    .first-screen .container
+    {
+        flex-direction: column;
+    }
+
+    .navbar .container
+    {
+        padding: 0;
+    }
+
+    .navbar
+    {
+        padding-top: 8px;
+    }
+
+    .screen
+    {
+        padding-top: 60px;
+    }
+
+    .slogan h1
+    {
+        font-size: 40px;
+        width: 135px;
+    }
+
+    .second-screen .btn-follow:nth-child(2), .second-screen .btn-follow:nth-child(3)
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+    }
+
+    .screen.second-screen .btn-follow
+    {
+        width: 250px;
+
+    }
+
+    .second-screen .container
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .slick-cases-wrapper .col-text
+    {
+        padding-top: 10px;
+    }
+
+    .slick-cases-wrapper .block-text p
+    {
+        line-height: 22px;
+        font-size: 14px;
+        width: 250px;
+    }
+
+    .title
+    {
+        margin-top: 0px;
+        margin-bottom: 5px;
+        font-size: 36px;
+    }
+
+    .slick-cases-wrapper .slide-title
+    {
+        margin-bottom: 5px;
+    }
+
+    .slide-item .block-image img
+    {
+        width: 200px;
+    }
+
+    .slide-item .col-img
+    {
+        order: -1;
+    }
+
+    .screen.cases .container:nth-child(3)
+    {
+        margin-top: 0;
+    }
+
+    .slick-dotted.slick-slider
+    {
+        margin-bottom: 5px;
+    }
+
+    .btn-slider
+    {
+        width: 55px;
+        height: 55px;
+        background-size: cover;
+    }
+
+    .slick-cases-nav
+    {
+        right: 3%;
+        bottom: 10%;
+    }
+
+    .about-us .col-text p:first-child
+    {
+        margin-top: 0;
+    }
+
+    .about-us .col-text p
+    {
+        font-size: 14px;
+    }
+
+    .about-us .text-wrapper p:nth-child(2)
+    {
+        margin-bottom: 15px;
+    }
+
+    .like-chat
+    {
+        display: none;
+    }
+
+    .screen.contacts:before
+    {
+        content: none;
+    }
+
+    .contact-form 
+    {
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .col-contacts .btn-follow
+    {
+        margin: 0 auto;
+    }
+
+    .contacts-wrapper
+    {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .screen.contacts .col-contacts
+    {
+        justify-content: start;
+    }
+
+    footer
+    {
+        position: absolute;
+        height: 135px;
+        bottom: 0;
+    }
+
+    footer .contact
+    {
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+
+    .copyright
+    {
+        text-align: left;
+    }
+}
