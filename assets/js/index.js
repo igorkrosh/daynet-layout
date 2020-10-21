@@ -374,17 +374,8 @@ function PreventDefaultForScrollKeys(e) // Функция вызывается �
 function PreventDefaultForTouch(e) // Функция вызывается для event'а touchmove
 {
     e.preventDefault();
-    ScrollHandler();
-}
 
-// Получает координаты начала свайпа
-$(window).on('touchstart', function(e) {
-    startTouch = e.changedTouches[0];
-    
-})
-
-// Получаем координаты конца свайпа и вычисляем направление свайпа
-$(window).on('touchend', function(e) {
+    // Получаем координаты конца свайпа и вычисляем направление свайпа
     let endTouch = e.changedTouches[0];
 
     if (endTouch.screenY - startTouch.screenY > 0)
@@ -395,6 +386,15 @@ $(window).on('touchend', function(e) {
     {
         moveDown = true;
     }
+
+    console.log('end')
+    ScrollHandler();
+}
+
+// Получает координаты начала свайпа
+$(window).on('touchstart', function(e) {
+    startTouch = e.changedTouches[0];
+    console.log('start')
 });
 
 function ScrollHandler()
@@ -417,13 +417,12 @@ function ScrollHandler()
         scrollTop = arrayScreens[screenIndex - 1].offsetTop;
     }
 
+
     window.scrollTo({
         top: scrollTop,
         left: 0,
         behavior: 'smooth'
     });
-
-    
 
     blockTransition = true;
     setTimeout(UnblockTransition, 500);
@@ -438,7 +437,7 @@ function DisableScroll() // Отключает стандартный скрол
 {
     window.addEventListener('DOMMouseScroll', PreventDefaultForScroll, false); //  Для старых версий Firefox
     window.addEventListener(wheelEvent, PreventDefaultForScroll, wheelOpt); // Для современных браузеров
-    window.addEventListener('touchmove', PreventDefaultForTouch, wheelOpt); // Для смартфонов
+    window.addEventListener('touchend', PreventDefaultForTouch, wheelOpt); // Для смартфонов
     window.addEventListener('keydown', PreventDefaultForScrollKeys, false); // Для нажатий клавиш на клавиатуре
 }
 
