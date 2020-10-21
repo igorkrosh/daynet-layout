@@ -254,7 +254,7 @@
     .title
     {
         margin-top: 0px;
-        margin-bottom: 5px;
+        margin-bottom: 15px;
         font-size: 36px;
     }
 
@@ -303,7 +303,7 @@
 
     .about-us .col-text p
     {
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .about-us .text-wrapper p:nth-child(2)
@@ -340,11 +340,6 @@
         justify-content: center;
     }
 
-    .screen.contacts .col-contacts
-    {
-        justify-content: start;
-    }
-
     footer
     {
         position: absolute;
@@ -362,4 +357,18 @@
     {
         text-align: left;
     }
+
+    .screen.cases, .about-us
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .about-us .container
+    {
+        height: auto;
+    }
+
 }
