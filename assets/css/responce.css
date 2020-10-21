@@ -117,4 +117,41 @@
     {
         padding-right: 0;
     }
+
+    .title 
+    {
+        font-size: 42px;
+        letter-spacing: 5px;
+    }
+
+    .about-us .col-text p:first-child
+    {
+        margin-top: 50px;
+    }
+
+    .screen.contacts:before
+    {
+        width: 40%;
+    }
+
+    .like-chat
+    {
+        left: 54%;
+    }
+
+    footer .container
+    {
+        flex-wrap: wrap;
+    }
+
+    .copyright
+    {
+        width: 100%;
+        text-align: center;
+    }
+
+    footer
+    {
+        padding: 10px 0;
+    }
 }
