@@ -380,6 +380,7 @@ function PreventDefaultForTouch(e) // Функция вызывается для
 // Получает координаты начала свайпа
 $(window).on('touchstart', function(e) {
     startTouch = e.changedTouches[0];
+    
 })
 
 // Получаем координаты конца свайпа и вычисляем направление свайпа
@@ -421,6 +422,8 @@ function ScrollHandler()
         left: 0,
         behavior: 'smooth'
     });
+
+    
 
     blockTransition = true;
     setTimeout(UnblockTransition, 500);
@@ -638,7 +641,7 @@ function ExitInDirectionState()
 //*ОБРАБОТЧИКИ СОБЫТИЙ ЭКРАНА*//
 
 $(window).on('scroll', function(e) {
-    let scrollProcess = window.scrollY / window.innerHeight;
+    let scrollProcess = window.scrollY / window.innerHeight + 0.1;
     stateIndex = parseInt(scrollProcess);
 
     OnScrollBackground(scrollProcess);
@@ -651,3 +654,8 @@ $(window).on('resize', function(e) {
 })
 
 //*КОНЕЦ ОБРАБОТЧИКОВ СОБЫТИЙ ЭКРАНА*//
+
+function MobileLog(obj)
+{
+    $('.navbar-menu .container').append(`${obj} \n`)
+}
