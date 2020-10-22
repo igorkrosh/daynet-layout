@@ -297,7 +297,7 @@ a, button, input
     opacity: 0;
 }
 
-.screen .container
+.screen .container, .section .container
 {
     z-index: 10;
     position: relative;
@@ -844,7 +844,7 @@ a, button, input
     position: relative;
 }
 
-.screen.contacts:before
+.screen.contacts:before, .section.contacts:before
 {
     content: "";
     position: absolute;
@@ -957,6 +957,8 @@ footer .contact img
 {
     left: 0;
     right: 0;
+    width: 250px;
+    margin: auto;
 }
 
 .sect-contacts .contacts-wrapper .contact-item:nth-child(3)
@@ -1026,4 +1028,20 @@ footer .container
 .input-form label.active
 {
     bottom: 60px;
+}
+
+.section
+{
+    position: relative;
+    min-height: 800px;
+}
+
+.bg
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
 }
