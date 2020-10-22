@@ -999,4 +999,19 @@ footer .container
     height: 100%;
 }
 
+.cubes-bounce
+{
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    animation: bounce 9s linear infinite;
+}
+
+.cubes-border-bounce
+{
+    position: absolute;
+    bottom: 25%;
+    left: 25%;
+    animation: bounce 7s linear infinite;
+}
 
