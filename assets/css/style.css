@@ -958,8 +958,8 @@ footer .contact img
 
 .sect-contacts .contacts-wrapper .contact-item:nth-child(2)
 {
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
 }
 
 .sect-contacts .contacts-wrapper .contact-item:nth-child(3)

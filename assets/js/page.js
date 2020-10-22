@@ -7,6 +7,12 @@ function Core()
     SetNavbarMenu();
     SetCursor();
     SetInputForms();
+
+    // Инициализация WOW.JS 
+    let wow = new WOW({
+        animateClass: 'animate__animated'
+    })
+    wow.init();
 }
 
 function SetCursor() // Устанавливает кастомный курсор на странице
