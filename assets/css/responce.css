@@ -377,11 +377,16 @@
         justify-content: center;
     }
 
-    footer
+    .main-page footer
     {
         position: absolute;
         height: 135px;
         bottom: 0;
+    }
+
+    footer 
+    {
+        height: auto;
     }
 
     footer .contact
