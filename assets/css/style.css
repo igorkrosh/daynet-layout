@@ -937,7 +937,7 @@ footer .contact img
     font-weight: 900;
     text-transform: uppercase;
     margin-top: 50px;
-    margin-bottom: 150px;
+    margin-bottom: 185px;
 }
 
 .sect-contacts h2 span
@@ -951,6 +951,23 @@ footer .contact img
     flex-direction: column;
     align-items: center;
     color: #ffffff;
+    position: absolute;
+}
+
+.sect-contacts .contacts-wrapper .contact-item:nth-child(1)
+{
+    left: 0;
+}
+
+.sect-contacts .contacts-wrapper .contact-item:nth-child(2)
+{
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sect-contacts .contacts-wrapper .contact-item:nth-child(3)
+{
+    right: 0;
 }
 
 .sect-contacts .contacts-wrapper .contact-item img
@@ -975,6 +992,11 @@ footer .contact img
 .sect-contacts .contacts-wrapper .contact-item:hover
 {
     text-decoration: none;
+}
+
+footer .container
+{
+    height: 100%;
 }
 
 
