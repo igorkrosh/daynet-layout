@@ -373,28 +373,33 @@ function PreventDefaultForScrollKeys(e) // Функция вызывается �
 
 function PreventDefaultForTouch(e) // Функция вызывается для event'а touchmove
 {
-    e.preventDefault();
-
     // Получаем координаты конца свайпа и вычисляем направление свайпа
     let endTouch = e.changedTouches[0];
+    let range = 100;
+    let touchDirection = endTouch.screenY - startTouch.screenY;
+    
+    if (Math.abs(touchDirection) < range)
+    {
+        return;
+    }
 
-    if (endTouch.screenY - startTouch.screenY > 0)
+    e.preventDefault();
+    
+    if (touchDirection > range)
     {
         moveDown = false;
     }
-    else if (endTouch.screenY - startTouch.screenY < 0)
+    else if (touchDirection < range)
     {
         moveDown = true;
     }
 
-    console.log('end')
     ScrollHandler();
 }
 
 // Получает координаты начала свайпа
 $(window).on('touchstart', function(e) {
     startTouch = e.changedTouches[0];
-    console.log('start')
 });
 
 function ScrollHandler()
