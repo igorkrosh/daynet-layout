@@ -158,6 +158,10 @@
 
 @media(max-width: 576px)
 {
+    .cursor
+    {
+        display: none;
+    }
     #design
     {
         right: -650px;

@@ -375,7 +375,7 @@ function PreventDefaultForTouch(e) // Функция вызывается для
 {
     // Получаем координаты конца свайпа и вычисляем направление свайпа
     let endTouch = e.changedTouches[0];
-    let range = 100;
+    let range = 50;
     let touchDirection = endTouch.screenY - startTouch.screenY;
     
     if (Math.abs(touchDirection) < range)
