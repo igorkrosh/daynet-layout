@@ -439,6 +439,8 @@ function DisableScroll() // Отключает стандартный скрол
     window.addEventListener(wheelEvent, PreventDefaultForScroll, wheelOpt); // Для современных браузеров
     window.addEventListener('touchend', PreventDefaultForTouch, wheelOpt); // Для смартфонов
     window.addEventListener('keydown', PreventDefaultForScrollKeys, false); // Для нажатий клавиш на клавиатуре
+
+    window.addEventListener('touchmove', function(e) {e.preventDefault();}, wheelOpt); // Для смартфонов
 }
 
 function EnableScroll() // Включает  стандартный скролл на странице
@@ -446,6 +448,7 @@ function EnableScroll() // Включает  стандартный скролл
     window.removeEventListener('DOMMouseScroll', PreventDefault, false);
     window.removeEventListener(wheelEvent, PreventDefault, wheelOpt); 
     window.removeEventListener('touchmove', PreventDefault, wheelOpt);
+    window.removeEventListener('touchend', PreventDefault, wheelOpt);
     window.removeEventListener('keydown', PreventDefaultForScrollKeys, false);
 }
 
