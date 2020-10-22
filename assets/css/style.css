@@ -231,25 +231,22 @@ a, button, input
     width: 580px;
     height: 580px;
     border-radius: 50%;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     border: 5px dotted #001927;
     animation: rotate 105s linear infinite;
 }
 
 @keyframes rotate {
-    from 
-    {
-        transform: rotate(0deg);
-    }
-
-    to 
-    {
-        transform: rotate(360deg);
-    }
+    0% {transform: translate(-50%, -50%) rotate(0deg);}
+    2% {transform: translate(-50%, -50%) rotate(7deg);}
+    5% {transform: translate(-50%, -50%) rotate(18deg);}
+    20% {transform: translate(-50%, -50%) rotate(72deg);}
+    80% {transform: translate(-50%, -50%) rotate(288deg);}
+    95% {transform: translate(-50%, -50%) rotate(342deg);}
+    98% {transform: translate(-50%, -50%) rotate(353deg);}
+    100% {transform: translate(-50%, -50%) rotate(360deg);}
 }
 
 .circle-bounce
