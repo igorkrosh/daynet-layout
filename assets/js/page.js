@@ -6,6 +6,7 @@ function Core()
 {
     SetNavbarMenu();
     SetCursor();
+    SetInputForms();
 }
 
 function SetCursor() // Устанавливает кастомный курсор на странице
@@ -68,5 +69,16 @@ function SetNavbarMenu() // Установка бокового меню нав�
             $('.navbar-menu').addClass(animateInClass);
             $('.navbar-menu').removeClass(animateOutClass);
         }        
+    })
+}
+
+function SetInputForms()
+{
+    $('.input-form input').on('focus', function() {
+        $(this).siblings('label').addClass('active');
+    });
+
+    $('.input-form input').on('focusout', function() {
+        $(this).siblings('label').removeClass('active');
     })
 }

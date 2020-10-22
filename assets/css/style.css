@@ -11,15 +11,12 @@ body.main-page
     overflow: hidden;
 }
 
-button
-{
-    outline: none!important;
-}
-
 a, button, input
 {
     cursor: none!important;
+    outline: none!important;
 }
+
 
 .cursor
 {
@@ -1015,3 +1012,21 @@ footer .container
     animation: bounce 7s linear infinite;
 }
 
+.input-form
+{
+    position: relative;
+    margin-top: 10px;
+}
+
+.input-form label
+{
+    position: absolute;
+    bottom: 30px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+.input-form label.active
+{
+    bottom: 60px;
+}

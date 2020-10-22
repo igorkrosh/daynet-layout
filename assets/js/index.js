@@ -144,6 +144,7 @@ function Core() // Инизиализация осовных компонент�
     SetSlickCases();
     SetSlickDots();
     SetVH();
+    SetInputForms();
 
     // Инициализация WOW.JS 
     let wow = new WOW({
@@ -328,6 +329,17 @@ function SetVH()
 {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+function SetInputForms()
+{
+    $('.input-form input').on('focus', function() {
+        $(this).siblings('label').addClass('active');
+    });
+
+    $('.input-form input').on('focusout', function() {
+        $(this).siblings('label').removeClass('active');
+    })
 }
 
 //*КОНЕЦ БЛОКА UI/UX СКРИПТОВ*//
