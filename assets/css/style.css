@@ -1,8 +1,13 @@
 body
 {
-    background: #00141e;
+    background: #000C18;
     color: #ffffff;
     cursor: none;
+    
+}
+
+body.main-page
+{
     overflow: hidden;
 }
 
@@ -198,6 +203,7 @@ a, button, input
     position: relative;
     display: flex;
     align-items: center;
+    background: url('../images/bg/bg-contacts.png');
 }
 
 .first-screen .bg
@@ -209,12 +215,12 @@ a, button, input
     height: 100%;
 }
 
-.first-screen .bg .circle
+.bg .circle
 {
     position: absolute;
     width: 480px;
     height: 480px;
-    background-color: #031520;
+    background-color: #000D1A;
     border-radius: 50%;
     left: 50%;
     top: 50%;
@@ -222,7 +228,7 @@ a, button, input
 }
 
 
-.first-screen .bg .circle-dotted
+.bg .circle-dotted
 {
     position: absolute;
     width: 580px;
@@ -233,7 +239,7 @@ a, button, input
     bottom: 0;
     left: 0;
     right: 0;
-    border: 5px dotted #001f2b;
+    border: 5px dotted #001927;
     animation: rotate 105s linear infinite;
 }
 
@@ -369,7 +375,7 @@ a, button, input
     z-index: 300;
     display: flex;
     justify-content: center;
-    background-color: #011925;
+    background-color: #001220;
     transition: 0.5s;
 }
 
@@ -780,7 +786,7 @@ a, button, input
     content: "";
     width: 100%;
     height: 100%;
-    background-color: #00141e;
+    background-color: #000C18;
     z-index: 2;
     position: absolute;
     top: 0;
@@ -914,3 +920,61 @@ footer .contact img
 {
     text-decoration: none;
 }
+
+.section
+{
+    padding-top: 100px;
+}
+
+.sect-contacts
+{
+    background: url('../images/bg/bg-contacts.png');
+}
+
+.sect-contacts h2
+{
+    font-size: 40px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-top: 50px;
+    margin-bottom: 150px;
+}
+
+.sect-contacts h2 span
+{
+    color: #93abb4;
+}
+
+.sect-contacts .contacts-wrapper .contact-item
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+}
+
+.sect-contacts .contacts-wrapper .contact-item img
+{
+    width: 43px;
+    height: 43px;
+}
+
+.sect-contacts .contacts-wrapper
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sect-contacts .contacts-wrapper .contact-item span
+{
+    font-weight: 700;
+    display: block;
+    margin-top: 20px;
+}
+
+.sect-contacts .contacts-wrapper .contact-item:hover
+{
+    text-decoration: none;
+}
+
+
