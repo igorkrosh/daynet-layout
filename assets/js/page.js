@@ -1,4 +1,16 @@
 // Скрипты для внутренних страниц
+let textArray = [
+    //'если вам жарко',
+    'если у вас есть водительские права',
+    //'если вам просто любопытно',
+    //'если это читаете',
+    'если вы выпили слишком много текилы'
+];
+
+let lineIndex = 0;
+let symbolIndex = 0;
+let typing = true;
+let typingPause = false;
 
 $(document).ready(Core)
 
@@ -13,8 +25,7 @@ function Core()
     SetNavbarMenu();
     SetCursor();
     SetInputForms();
-
-
+    SetTypingText();
 }
 
 function SetCursor() // Устанавливает кастомный курсор на странице
@@ -89,4 +100,41 @@ function SetInputForms()
     $('.input-form input').on('focusout', function() {
         $(this).siblings('label').removeClass('active');
     })
+}
+
+function SetTypingText()
+{
+    let intervalTyping = setInterval(function () {
+        
+        let textCount = textArray.length;
+        let typingText = $('.typing-text').text();
+        let htmlTextLength = $('.typing-text').text().length;
+
+        if (lineIndex + 1 > textCount) {lineIndex = 0}
+
+        let textLineLength = textArray[lineIndex].length;
+
+        if (typing)
+        {
+            typingText = typingText + textArray[lineIndex][symbolIndex];
+            $('.typing-text').text(typingText);
+    
+            symbolIndex++;
+            
+            if (textLineLength - 1  < symbolIndex) { lineIndex++; symbolIndex = 0; typing = false; typingPause = true;}
+        }
+        else
+        {
+            if (typingPause == true) {setTimeout(function() {typingPause = false;}, 1000); return}
+            if (htmlTextLength == 0)
+            {
+                typing = true;
+            }
+            else
+            {
+                let htmlText = $('.typing-text').text().substring(0, htmlTextLength - 1);
+                $('.typing-text').text(htmlText)
+            }
+        }
+    }, 100)
 }

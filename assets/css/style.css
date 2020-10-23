@@ -937,6 +937,38 @@ footer .contact img
 .sect-contacts h2 span
 {
     color: #93abb4;
+    display: inline;
+    position: relative;
+}
+
+.sect-contacts h2 .cursor
+{
+    display: inline;
+    height: 100%;
+}
+
+.sect-contacts h2 .typing-cursor
+{
+    display: inline;
+    animation: type 1s linear infinite;
+    text-transform: lowercase;
+
+}
+
+@keyframes type {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.sect-contacts .contacts-wrapper
+{
+    position: absolute;
+    width: 100%;
+    top: 40%;
 }
 
 .sect-contacts .contacts-wrapper .contact-item
@@ -945,8 +977,10 @@ footer .contact img
     flex-direction: column;
     align-items: center;
     color: #ffffff;
-    position: absolute;
+
     width: 250px;
+
+    z-index: 10;
 }
 
 .sect-contacts .contacts-wrapper .contact-item:nth-child(1)

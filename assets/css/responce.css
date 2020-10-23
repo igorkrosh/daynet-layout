@@ -20,6 +20,11 @@
     {
         font-size: 72px;
     }
+
+    .sect-contacts h2
+    {
+        font-size: 36px;
+    }
 }
 
 @media (max-width: 992px)
@@ -107,14 +112,23 @@
 
     .sect-contacts h2
     {
-        font-size: 28px;
+        font-size: 26px;
         margin-bottom: 40px;
         margin-top: 5px;
+    }
+
+    .sect-contacts .contacts-wrapper
+    {
+        top: 22%;
     }
 }
 
 @media(max-width: 768px)
 {
+    .section
+    {
+        padding-top: 85px;
+    }
     .btn-follow
     {
         font-size: 20px;
@@ -190,6 +204,15 @@
 
 @media(max-width: 576px)
 {
+    .section
+    {
+        padding-top: 65px;
+    }
+
+    .sect-contacts h2
+    {
+        font-size: 18px;
+    }
     .cursor
     {
         display: none;
