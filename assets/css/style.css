@@ -834,7 +834,7 @@ a, button, input
     justify-content: center;
 }
 
-.screen.contacts .col-contacts .btn-follow
+.screen.contacts .col-contacts .btn-follow, .section.contacts .col-contacts .btn-follow
 {
     width: 330px;
 }
