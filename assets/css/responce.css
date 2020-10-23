@@ -97,8 +97,7 @@
     .sect-contacts .contacts-wrapper .contact-item
     {
         position: relative;
-        margin-bottom: 40px;
-        
+        margin: 0 auto 40px auto;
     }
 
     .sect-contacts .contacts-wrapper
@@ -109,7 +108,7 @@
     .sect-contacts h2
     {
         font-size: 28px;
-        margin-bottom: 90px;
+        margin-bottom: 40px;
         margin-top: 5px;
     }
 }
@@ -182,7 +181,7 @@
     .sect-contacts h2
     {
         font-size: 28px;
-        margin-bottom: 90px;
+        margin-bottom: 40px;
         margin-top: 5px;
     }
 
@@ -353,7 +352,7 @@
         display: none;
     }
 
-    .screen.contacts:before
+    .screen.contacts:before, .section.contacts:before
     {
         content: none;
     }
@@ -411,6 +410,11 @@
     .about-us .container
     {
         height: auto;
+    }
+
+    .section 
+    {
+        min-height: 675px;
     }
 
 }
