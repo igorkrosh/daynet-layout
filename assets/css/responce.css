@@ -83,7 +83,7 @@
         width: 250px;
     }
 
-    .screen.contacts .col-contacts .btn-follow
+    .screen.contacts .col-contacts .btn-follow, .section.contacts .col-contacts .btn-follow
     {
         width: 250px;
         padding: 0 0px 0 70px;

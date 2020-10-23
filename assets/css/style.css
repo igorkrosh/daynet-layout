@@ -827,7 +827,7 @@ a, button, input
     height: 100%;
 }
 
-.screen.contacts .col-contacts
+.screen.contacts .col-contacts, .section.contacts .col-contacts
 {
     display: flex;
     flex-direction: column;
