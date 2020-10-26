@@ -1121,3 +1121,110 @@ footer .container
     letter-spacing: 25px;
     margin-bottom: 75px;
 }
+
+.few-words
+{
+    padding-top: 50px;
+    margin-bottom: 100px;
+}
+
+.few-words h3
+{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 90px;
+}
+
+.few-words .words-item
+{
+    width: 420px;
+    font-size: 15px;
+}
+
+.few-words .words-wrapper
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.few-words .words-item:nth-child(1)
+{
+    color: #dde0e1;
+}
+
+.few-words .words-item:nth-child(2)
+{
+    color: #7f97a0;
+}
+
+.numbers-wrapper
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.numbers-wrapper .number-item
+{
+    font-size: 200px;
+    font-weight: 900;
+    color: #4da69a;
+    line-height: 200px;
+    padding-right: 25px;
+    position: relative;
+}
+
+.numbers-wrapper .number-item::after
+{
+    position: absolute;
+    color: #4da69a;
+    top: 10px;
+    font-size: 18px;
+    line-height: normal;
+    left: 7px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.numbers-wrapper .number-item::before
+{
+    position: absolute;
+    transform-origin: bottom left;
+    transform: rotate(-90deg);
+    color: #4da69a;
+    bottom: 15px;
+    font-size: 18px;
+    line-height: normal;
+    left: 100%;
+    width: 150px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+}
+
+.numbers-wrapper .number-item:nth-child(1)::after
+{
+    content: "Более";
+}
+
+.numbers-wrapper .number-item:nth-child(2)::after
+{
+    content: "Более";
+}
+
+.numbers-wrapper .number-item:nth-child(1)::before
+{
+    content: "Лет на рынке";
+}
+
+.numbers-wrapper .number-item:nth-child(2)::before
+{
+    content: "Проектов";
+}
+
+.numbers-wrapper .number-item:nth-child(3)::before
+{
+    content: "Отзывов";
+}

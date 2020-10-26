@@ -26,6 +26,7 @@ function Core()
     SetCursor();
     SetInputForms();
     SetTypingText();
+    SetSpincrement();
 }
 
 function SetCursor() // Устанавливает кастомный курсор на странице
@@ -137,4 +138,11 @@ function SetTypingText()
             }
         }
     }, 100)
+}
+
+function SetSpincrement()
+{
+    $('.numbers-wrapper .number-item').spincrement({
+        duration: 2000
+    })
 }
