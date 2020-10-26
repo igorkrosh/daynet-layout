@@ -1301,3 +1301,31 @@ footer .container
     -webkit-filter: none; /* Safari 6.0 - 9.0 */
     filter: none;
 }
+
+.part-of-team h3
+{
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.part-of-team p
+{
+    font-size: 15px;
+    font-weight: 100;
+    color: #93abb4;
+}
+
+.part-of-team a
+{
+    color: #489c92;
+}
+
+.part-of-team a:hover
+{
+    text-decoration: none;
+}
+
+.part-of-team
+{
+    padding-bottom: 75px;
+}
