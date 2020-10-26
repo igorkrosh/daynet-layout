@@ -12,6 +12,9 @@ let symbolIndex = 0;
 let typing = true;
 let typingPause = false;
 
+let windowY = window.scrollY + window.innerHeight;
+let setSpincrement = false;
+
 $(document).ready(Core)
 
 function Core()
@@ -26,7 +29,6 @@ function Core()
     SetCursor();
     SetInputForms();
     SetTypingText();
-    SetSpincrement();
 }
 
 function SetCursor() // Устанавливает кастомный курсор на странице
@@ -145,4 +147,14 @@ function SetSpincrement()
     $('.numbers-wrapper .number-item').spincrement({
         duration: 2000
     })
+    setSpincrement = true;
 }
+
+$(window).on('scroll', function() {
+    windowY = window.scrollY + window.innerHeight;
+
+    if (windowY >= $('.numbers-wrapper').position().top && setSpincrement == false)
+    {
+        SetSpincrement();
+    }
+})
