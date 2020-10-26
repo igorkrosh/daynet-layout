@@ -1300,6 +1300,7 @@ footer .container
 {
     -webkit-filter: none; /* Safari 6.0 - 9.0 */
     filter: none;
+    transform: scale(1.1);
 }
 
 .part-of-team h3
@@ -1404,4 +1405,60 @@ footer .container
     flex-direction: column;
     justify-content: center;
     padding-left: 50px;
+}
+
+.quote
+{
+    padding: 150px 0;
+}
+
+.quote .image-wrapper
+{
+    text-align: right;
+}
+
+.quote .quote-text
+{
+    font-weight: 900;
+    font-size: 28px;
+    margin-bottom: 50px;
+    margin-left: -100px;
+    width: 450px;
+}
+
+.quote .col-text
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quote-author .name
+{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.quote-author .position
+{
+    font-size: 15px;
+    font-weight: 400;
+    color: #4da69a;
+}
+
+.quote .quote-author
+{
+    padding-bottom: 25px;
+    position: relative;
+}
+
+.quote .quote-author::after
+{
+    position: absolute;
+    content: "";
+    width: 36px;
+    height: 5px;
+    background-color: #4da69a;
+    bottom: 0;
+    left: 0;
 }

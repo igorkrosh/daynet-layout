@@ -29,6 +29,11 @@ function Core()
     SetCursor();
     SetInputForms();
     SetTypingText();
+
+    if (windowY >= $('.numbers-wrapper').position().top && setSpincrement == false)
+    {
+        SetSpincrement();
+    }
 }
 
 function SetCursor() // Устанавливает кастомный курсор на странице
