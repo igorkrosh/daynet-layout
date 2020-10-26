@@ -1329,3 +1329,79 @@ footer .container
 {
     padding-bottom: 75px;
 }
+
+.brands-wrapper
+{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 50px 50px 0;
+    position: relative;
+    z-index: 10;
+}
+
+.brands-wrapper .brand
+{
+    width: 33%;
+    height: 100px;
+    position: relative;
+}
+
+.brands-wrapper .brand img
+{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.brands-wrapper .brand:nth-child(3n - 2) img
+{
+    margin-left: 0;
+}
+
+.brands-wrapper .brand:nth-child(3n) img
+{
+    margin-right: 0;
+}
+
+.our-partners
+{
+    position: relative;
+}
+
+.our-partners:after
+{
+    content: "";
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #001221;
+}
+
+.our-partners h2
+{
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 42px;
+    letter-spacing: 10px;
+    margin-bottom: 25px;
+}
+
+.our-partners p
+{
+    font-weight: 100;
+    font-size: 16px;
+    
+}
+
+.our-partners .col-text
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 50px;
+}
