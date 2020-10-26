@@ -814,6 +814,7 @@ a, button, input
 .contacts-wrapper a
 {
     display: inline-block;
+    margin-right: 15px;
 }
 
 .contacts-wrapper
@@ -1329,6 +1330,7 @@ footer .container
 .part-of-team
 {
     padding-bottom: 75px;
+    overflow: hidden;
 }
 
 .brands-wrapper
@@ -1370,6 +1372,7 @@ footer .container
 .our-partners
 {
     position: relative;
+    overflow: hidden;
 }
 
 .our-partners:after
@@ -1410,6 +1413,7 @@ footer .container
 .quote
 {
     padding: 150px 0;
+    overflow: hidden;
 }
 
 .quote .image-wrapper
