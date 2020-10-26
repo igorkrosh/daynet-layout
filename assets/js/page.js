@@ -1,9 +1,9 @@
 // Скрипты для внутренних страниц
 let textArray = [
-    //'если вам жарко',
+    'если вам жарко',
     'если у вас есть водительские права',
-    //'если вам просто любопытно',
-    //'если это читаете',
+    'если вам просто любопытно',
+    'если это читаете',
     'если вы выпили слишком много текилы'
 ];
 
@@ -116,7 +116,7 @@ function SetTypingText()
         
         let textCount = textArray.length;
         let typingText = $('.typing-text').text();
-        let htmlTextLength = $('.typing-text').text().length;
+        
 
         if (lineIndex + 1 > textCount) {lineIndex = 0}
 
@@ -133,6 +133,14 @@ function SetTypingText()
         }
         else
         {
+            
+        }
+    }, 100);
+
+    let intervalDeleting = setInterval(function() {
+        let htmlTextLength = $('.typing-text').text().length;
+        if (!typing)
+        {
             if (typingPause == true) {setTimeout(function() {typingPause = false;}, 1000); return}
             if (htmlTextLength == 0)
             {
@@ -144,7 +152,7 @@ function SetTypingText()
                 $('.typing-text').text(htmlText)
             }
         }
-    }, 100)
+    }, 40);
 }
 
 function SetSpincrement()
