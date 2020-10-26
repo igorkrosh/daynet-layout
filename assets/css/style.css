@@ -930,7 +930,7 @@ footer .contact img
     font-size: 40px;
     font-weight: 900;
     text-transform: uppercase;
-    margin-top: 50px;
+    margin-top: 130px;
     margin-bottom: 110px;
 }
 
@@ -968,7 +968,7 @@ footer .contact img
 {
     position: absolute;
     width: 100%;
-    top: 40%;
+    top: 45%;
 }
 
 .sect-contacts .contacts-wrapper .contact-item
