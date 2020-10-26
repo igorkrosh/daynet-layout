@@ -814,7 +814,6 @@ a, button, input
 .contacts-wrapper a
 {
     display: inline-block;
-    margin-right: 15px;
 }
 
 .contacts-wrapper
@@ -1011,6 +1010,8 @@ footer .contact img
 {
     display: flex;
     justify-content: space-between;
+    left: 0;
+    right: 0;
 }
 
 .sect-contacts .contacts-wrapper .contact-item span
