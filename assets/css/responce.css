@@ -245,7 +245,50 @@
         margin-top: 5px;
     }
 
+    .image-title h1
+    {
+        font-size: 55px;
+        margin-bottom: 0;
+    }
 
+    .image-title
+    {
+        height: 280px;
+    }
+
+    .few-words .words-item
+    {
+        padding: 0 10px;
+    }
+
+    .team-item img
+    {
+        width: 200px;
+        height: 300px;
+    }
+
+    .our-partners:after
+    {
+        width: 100%;
+        height: 390px;
+    }
+
+    .brands-wrapper .brand
+    {
+        width: 135px;
+    }
+
+    .brands-wrapper
+    {
+        padding: 50px 0;
+    }
+
+    .quote .quote-text
+    {
+        width: auto;
+        margin-left: -65px;
+        font-size: 20px;
+    }
 }
 
 @media(max-width: 576px)
@@ -484,6 +527,75 @@
     .section 
     {
         min-height: 675px;
+    }
+
+    .image-title h1
+    {
+        font-size: 40px;
+        letter-spacing: 5px;
+    }
+
+    .few-words .words-wrapper
+    {
+        display: block;
+    }
+
+    .few-words .words-item
+    {
+        width: 100%;
+    }
+
+    .our-team .team-wrapper
+    {
+        justify-content: center;
+    }
+
+    .brands-wrapper .brand
+    {
+        width: 50%;
+    }
+
+    .brands-wrapper .brand img
+    {
+        width: 130px;
+    }
+
+    .our-partners:after
+    {
+        height: 570px;
+    }
+
+    .brands-wrapper .brand:nth-child(3n - 2) img, .brands-wrapper .brand:nth-child(3n) img
+    {
+        margin: auto;
+    }
+
+    .our-partners h2
+    {
+        font-size: 43px;
+        letter-spacing: 5px;
+    }
+
+    .our-partners .col-text
+    {
+        padding-left: 15px;
+    }
+
+    .quote .quote-text
+    {
+        margin-left: 0;
+        margin-top: -65px;
+        margin-bottom: 10px;
+    }
+
+    .quote
+    {
+        padding-bottom: 70px;
+    }
+
+    .section.contacts
+    {
+        min-height: 510px;
     }
 
 }
