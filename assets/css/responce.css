@@ -147,6 +147,26 @@
     {
         top: 22%;
     }
+
+    .image-title h1
+    {
+        font-size: 90px;
+    }
+
+    .image-title
+    {
+        height: 450px;
+    }
+
+    .team-wrapper .team-item:nth-child(3n - 1)
+    {
+        margin-top: 0;
+    }
+
+    .quote .image-wrapper img
+    {
+        width: 100%;
+    }
 }
 
 @media(max-width: 768px)
