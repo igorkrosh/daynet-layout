@@ -1165,7 +1165,6 @@ footer .container
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 100px;
 }
 
 .numbers-wrapper .number-item
@@ -1466,3 +1465,24 @@ footer .container
     bottom: 0;
     left: 0;
 }
+
+.numbers-wrapper
+{
+    padding: 0 50px;
+    width: 1200px;
+}
+
+.rails
+{
+    overflow: hidden;
+    display: block;
+    position: relative;
+    height: 200px;
+
+}
+
+.rails-track
+{
+    display: inline-flex;
+}
+

@@ -25,6 +25,32 @@
     {
         font-size: 36px;
     }
+
+    .image-title h1
+    {
+        font-size: 140px;
+    }
+
+    .team-item img
+    {
+        width: 250px;
+        height: 420px;
+    }
+
+    .brands-wrapper .brand img
+    {
+        width: 100%;
+    }
+
+    .brands-wrapper
+    {
+        justify-content: space-between;
+    }
+
+    .brands-wrapper .brand
+    {
+        width: 110px;
+    }
 }
 
 @media (max-width: 992px)
