@@ -1,4 +1,5 @@
 // Скрипты для внутренних страниц
+
 let textArray = [
     'если вам жарко',
     'если у вас есть водительские права',
@@ -29,12 +30,23 @@ function Core()
     SetCursor();
     SetInputForms();
     SetTypingText();
+    SetSlickCases();
+    SetSlickDots();
+    //SetLabelRails();
+    //animate();
 
     if (windowY >= $('.numbers-wrapper').position().top && setSpincrement == false)
     {
-        SetSpincrement();
+        //SetSpincrement();
     }
 }
+
+function animate(time) {
+	requestAnimationFrame(animate);
+	TWEEN.update(time);
+}
+
+
 
 function SetCursor() // Устанавливает кастомный курсор на странице
 {
@@ -155,6 +167,39 @@ function SetTypingText()
     }, 40);
 }
 
+function SetSlickCases()
+{
+    $(".slick-cases-wrapper").slick({
+
+        items: 1,
+        vertical: false,
+        prevArrow: '<button type="button" class="btn-slider slider-prev"></button>',
+        nextArrow: '<button type="button" class="btn-slider slider-next"></button>',
+        appendArrows: $('.slick-cases-nav'),
+        dots: true,
+        appendDots: $('.slick-cases-dots'),
+        dotsClass: 'slider-dots',
+        fade: true,
+        speed: 1000,
+        infinite: true,
+    });
+
+}
+
+function SetSlickDots()
+{
+    let dots = $('.slick-cases-dots .slider-dots button');
+
+    for (let dot of dots)
+    {
+        let slideId = $(dot).attr('aria-controls');
+
+        let slideTitle = $(`#${slideId} .slide-title span`).text();
+        
+        $( `<span>${slideTitle}</span>` ).insertBefore( dot );
+    }
+}
+/*
 function SetSpincrement()
 {
     $('.numbers-wrapper .number-item').spincrement({
@@ -163,11 +208,59 @@ function SetSpincrement()
     setSpincrement = true;
 }
 
+function SetLabelRails()
+{
+    let label1 = $('.rails').children()[0];
+    $(label1).addClass('rails-item');
+
+    let railsLabelWidth =  $(label1).outerWidth();
+
+    let label2 = $(label1).clone().appendTo('.rails').addClass('rails-item');
+    let label3 = $(label1).clone().appendTo('.rails').addClass('rails-item');
+
+    let state1 = -railsLabelWidth;
+    let state2 = 0;
+    let state3 = $(window).outerWidth();
+    
+
+    $('.rails-item').wrapAll('<div class="rails-track"></div>');
+
+    let railsTrack = $('.rails-track');
+
+    let translateCoord = {x: 0}
+    
+    let tweenLabel = new TWEEN.Tween(translateCoord);
+
+    
+
+    tweenLabel.to({x: 1000}, 10000);
+
+    tweenLabel.easing(TWEEN.Easing.Linear.None);
+
+    tweenLabel.onUpdate(function (progress) {
+        $(railsTrack).css('transform', `translate3d(${translateCoord.x}px, 0, 0)`)
+    });
+    tweenLabel.start();
+
+}
+
+function TransitionRails()
+{
+    let arrayLabel = $('.rails-item');
+
+    for (let label of arrayLabel)
+    {
+        let leftCoord = parseInt($(label).css('left'));
+        $(label).css('left', `${leftCoord + 50}px`);
+    }
+}
+
 $(window).on('scroll', function() {
     windowY = window.scrollY + window.innerHeight;
 
     if (windowY >= $('.numbers-wrapper').position().top && setSpincrement == false)
     {
-        SetSpincrement();
+        //SetSpincrement();
     }
 })
+*/
