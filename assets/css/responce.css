@@ -51,6 +51,21 @@
     {
         width: 110px;
     }
+
+    .first-screen.reputation .slogan h1
+    {
+        font-size: 75px;
+    }
+
+    .step-wrapper:after
+    {
+        top: -100px;
+    }
+
+    .steps-reputation:before
+    {
+        top: 30%;
+    }
 }
 
 @media (max-width: 992px)
@@ -166,6 +181,21 @@
     .quote .image-wrapper img
     {
         width: 100%;
+    }
+
+    .step-wrapper:after
+    {
+        left: -470px;
+    }
+
+    .first-screen.reputation .slogan h1
+    {
+        font-size: 55px;
+    }
+
+    .first-screen.reputation
+    {
+        min-height: 650px;
     }
 }
 
@@ -289,6 +319,27 @@
         margin-left: -65px;
         font-size: 20px;
     }
+
+    .first-screen.reputation .slogan h1
+    {
+        font-size: 35px;
+    }
+
+    .first-screen.reputation .pr-text
+    {
+        padding-left: 30px;
+    }
+
+    .step-wrapper:after
+    {
+        content: none;
+    }
+
+    .step-wrapper .step-item:nth-child(n)
+    {
+        margin: auto;
+        width: 550px;
+    }
 }
 
 @media(max-width: 576px)
@@ -403,7 +454,7 @@
     {
         margin-top: 0px;
         margin-bottom: 15px;
-        font-size: 36px;
+        font-size: 32px;
     }
 
     .slick-cases-wrapper .slide-title
@@ -596,6 +647,16 @@
     .section.contacts
     {
         min-height: 510px;
+    }
+
+    .step-wrapper .step-item:nth-child(n)
+    {
+        width: 100%;
+    }
+
+    .steps-reputation:before
+    {
+        content: none;
     }
 
 }
