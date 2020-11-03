@@ -6,6 +6,17 @@ body
     
 }
 
+.page-transition
+{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #001220;
+    z-index: 1000;
+}
+
 body.main-page
 {
     overflow: hidden;
