@@ -35,6 +35,8 @@ function Core()
 
     window.addEventListener('DOMMouseScroll', SetScrollDirection, false); //  Для старых версий Firefox
     window.addEventListener(wheelEvent, SetScrollDirection, wheelOpt); // Для современных браузеров
+    window.addEventListener('touchmove', SetTouchDirection, wheelOpt);
+
 }
 
 function animate(time) {
@@ -65,15 +67,11 @@ function SetScrollDirection(e)
         ChangeTweenDirection(moveDown)
     }
 
-    
-
     if (!isFast)
     {
         ChangeTweenDirection(moveDown, tweenFastDuration);
         isFast = true;
     }
-
-
 }
 
 function ChangeTweenDirection(direction, newDuration = tweenDuration)
@@ -128,13 +126,42 @@ function SetRailsTranslate3D(translateX)
     return Math.abs(translateX / 100);
 }
 
+function SetTouchDirection(e) // Функция вызывается для event'а touchmove
+{
+    isScrolling = true;
+        
+    // Получаем координаты конца свайпа и вычисляем направление свайпа
+    let endTouch = e.changedTouches[0];
+    let touchDirection = endTouch.screenY - startTouch.screenY;
+    
+    if (touchDirection > 0 && moveDown == true)
+    {
+        moveDown = false;
+        ChangeTweenDirection(moveDown)
+    }
+    else if (touchDirection < 0 && moveDown == false)
+    {
+        moveDown = true;
+        ChangeTweenDirection(moveDown)
+    }
+
+    if (!isFast)
+    {
+        ChangeTweenDirection(moveDown, tweenFastDuration);
+        isFast = true;
+    }
+}
+
 $(window).on('scroll', function (e) {
     isScrolling = true;
     window.clearTimeout(checkScroll);
-
     checkScroll = setTimeout(function() {
         isScrolling = false;
         ChangeTweenDirection(moveDown);
         isFast = false;
     }, 60)
 })
+
+$(window).on('touchstart', function(e) {
+    startTouch = e.changedTouches[0];
+});
