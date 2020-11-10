@@ -36,6 +36,7 @@ function Core()
     window.addEventListener('DOMMouseScroll', SetScrollDirection, false); //  Для старых версий Firefox
     window.addEventListener(wheelEvent, SetScrollDirection, wheelOpt); // Для современных браузеров
     window.addEventListener('touchmove', SetTouchDirection, wheelOpt);
+    window.addEventListener('touchend', TouchEndHandler, wheelOpt)
 
 }
 
@@ -67,7 +68,7 @@ function SetScrollDirection(e)
         ChangeTweenDirection(moveDown)
     }
 
-    if (!isFast)
+    if (!isFast && isScrolling)
     {
         ChangeTweenDirection(moveDown, tweenFastDuration);
         isFast = true;
@@ -165,3 +166,10 @@ $(window).on('scroll', function (e) {
 $(window).on('touchstart', function(e) {
     startTouch = e.changedTouches[0];
 });
+
+function TouchEndHandler()
+{
+    isScrolling = false;
+    ChangeTweenDirection(moveDown);
+    isFast = false;
+}
