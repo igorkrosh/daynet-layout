@@ -1766,9 +1766,20 @@ footer .container
 
 .we-know-section
 {
+    position: relative;
+}
+
+.we-know-section:after
+{
+    content: "";
     background-image: url('../images/bg/we-know-bg.jpg');
     background-repeat: no-repeat;
-    background-position-x: 0%;
+    background-size: cover;
+    width: 45%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
 }
 
 
