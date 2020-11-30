@@ -11,3 +11,17 @@ $('#contacts-form input').on('input', function() {
     }
 })
 
+
+$('.btn-send-form').on('click', function () {
+    let data = $('#contacts-form').serialize();
+    
+    $.ajax({
+        type: "POST",    
+        url: "mailer.php",    
+        data: data    
+      }).done(function() {
+    
+      });
+      $('#contacts-form').find("input").val("");
+      $('#contacts-form label').removeClass('hidden')
+})
