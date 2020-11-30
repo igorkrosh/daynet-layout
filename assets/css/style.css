@@ -1637,6 +1637,7 @@ footer .container
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 60px;
 }
 
 .marketing-main-section .our-records
@@ -1700,6 +1701,75 @@ footer .container
     z-index: -1;
 }
 
+.we-know-wrapper
+{
+    width: 570px;
+    display: flex;
+    margin-left: auto;
+    flex-direction: column;
+}
+
+.we-know-wrapper h1
+{
+    font-size: 36px;
+    letter-spacing: 5px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.we-know-item
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.we-know-item span
+{
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+.we-know-footer
+{
+    margin-top: 35px;
+    display: flex;
+    align-items: center;
+}
+
+.we-know-footer span
+{
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.btn-follow.sm
+{
+    height: 55px;
+    font-size: 18px;
+    line-height: 55px;
+}
+
+.btn-follow.sm:before
+{
+    content: url('../images/icons/btn-arrow-sm.png');
+    left: 20px;
+}
+
+.we-know-section
+{
+    background-image: url('../images/bg/we-know-bg.jpg');
+    background-repeat: no-repeat;
+    background-position-x: 0%;
+}
 
 
 
