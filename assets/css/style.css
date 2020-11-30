@@ -1612,10 +1612,94 @@ footer .container
     0%   { transform: translate(0, 0); }
     100% { transform: translate(-100%, 0); }
 }
-.numbers-wrapper
-{
 
+.marketing-main-section h1
+{
+    font-size: 62px;
 }
+
+.marketing-main-section h2
+{
+    font-size: 42px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.marketing-main-section .slogan
+{
+    width: 100%;
+    max-width: none;
+}
+
+.marketing-main-section
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.marketing-main-section .our-records
+{
+    display: flex;
+    flex-direction: column;
+    width: 720px;
+    background-color: #4da69a;
+    padding: 25px;
+    margin-left: auto;
+}
+
+.marketing-main-section .our-records .record-wrapper
+{
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-between;
+}
+
+.marketing-main-section .our-records h1
+{
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.marketing-main-section .our-records .record h2
+{
+    font-size: 26px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.marketing-main-section .our-records .record span
+{
+    text-align: center;
+    display: block;
+}
+
+.marketing-main-section .our-records .record
+{
+    width: 200px;
+}
+
+.records-container
+{
+    margin-top: auto;
+}
+
+.slogan-container
+{
+    margin: auto;
+}
+
+.dayzy-marketing
+{
+    position: absolute;
+    right: 0;
+    bottom: 90%;
+    z-index: -1;
+}
+
 
 
 
