@@ -201,4 +201,7 @@ function SetSlickWeDo()
         prevArrow: '<button type="button" class="slider-prev"></button>',
         nextArrow: '<button type="button" class="slider-next"></button>',
     });
+
+    //$('.what-we-do-slider .slider-item').simpleLightbox();
+    $('.what-we-do-slider .slider-item').simpleLightbox();
 }
