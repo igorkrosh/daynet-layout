@@ -1839,8 +1839,8 @@ footer .container
 .what-we-do-section:after
 {
     content: "";
-    width: 1005px;
-    height: 984px;
+    width: 1000px;
+    height: 950px;
     background-image: url('../images/bg/dayzy-3.png');
     background-repeat: no-repeat;
     background-size: cover;

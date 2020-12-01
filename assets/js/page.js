@@ -200,6 +200,21 @@ function SetSlickWeDo()
         adaptiveHeight: true,
         prevArrow: '<button type="button" class="slider-prev"></button>',
         nextArrow: '<button type="button" class="slider-next"></button>',
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    vertical: false,
+                }
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    vertical: false,
+                    slidesToShow: 1,
+                }
+            }
+        ]
     });
 
     //$('.what-we-do-slider .slider-item').simpleLightbox();
