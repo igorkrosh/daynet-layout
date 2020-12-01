@@ -1824,8 +1824,109 @@ footer .container
     background-image: url('../images/bg/dayzy-2.png');
     background-repeat: no-repeat;
     background-size: cover;
+}
 
+.what-we-do-section
+{
+    background-image: url('../images/bg/what-we-do.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 150px;
+    overflow: hidden;
+}
 
+.what-we-do-section:after
+{
+    content: "";
+    width: 1005px;
+    height: 984px;
+    background-image: url('../images/bg/dayzy-3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 0%;
+    bottom: 0;
+}
+
+.what-we-do-slider .slider-item img, .what-we-do-slider .slick-slide
+{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.what-we-do-slider-wrapper
+{
+    width: 200px;
+    position: relative;
+}
+
+.what-we-do-slider-wrapper .slick-arrow
+{
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background-color: #001926;
+    border: 1px solid #4da69a;
+}
+
+.what-we-do-slider-wrapper .slider-prev
+{
+    bottom: 100%;
+}
+
+.what-we-do-slider-wrapper .slider-next
+{
+    top: 100%;
+}
+
+.what-we-do-slider-wrapper .slick-arrow:after
+{
+    content: url('../images/icons/slider.png');
+}
+
+.what-we-do-section h1
+{
+    font-size: 46px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.what-we-do-section p
+{
+    font-weight: 100;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.what-we-do-section p:last-of-type
+{
+    margin-bottom: 35px;
+}
+
+.we-do-more
+{
+    padding: 45px 0;
+    position: relative;
+    margin-top: 70px;
+}
+
+.we-do-more:after
+{
+    content: "";
+    width: 1000px;
+    height: 100%;
+    background-color: #4da69a;
+    left: -20%;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.what-we-do-section .col-slider
+{
+    display: flex;
+    align-items: flex-end;
 }
 
 

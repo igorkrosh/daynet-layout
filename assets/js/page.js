@@ -30,8 +30,10 @@ function Core()
     SetCursor();
     SetInputForms();
     SetTypingText();
+    SetSlickWeDo();
     SetSlickCases();
     SetSlickDots();
+    
 }
 
 function SetCursor() // Устанавливает кастомный курсор на странице
@@ -184,4 +186,19 @@ function SetSlickDots()
         
         $( `<span>${slideTitle}</span>` ).insertBefore( dot );
     }
+}
+
+function SetSlickWeDo()
+{
+    $(".what-we-do-slider").slick({
+        vertical: true,
+        infinite: true,
+        slidesToShow: 3,
+        infinite: true,
+        autoplay: true,
+        appendArrows: $('.what-we-do-slider-wrapper'),
+        adaptiveHeight: true,
+        prevArrow: '<button type="button" class="slider-prev"></button>',
+        nextArrow: '<button type="button" class="slider-next"></button>',
+    });
 }
