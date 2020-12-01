@@ -1782,5 +1782,51 @@ footer .container
     position: absolute;
 }
 
+.design-main-section .slogan h1
+{
+    font-size: 64px;
+}
+
+.design-main-section .slogan
+{
+    max-width: 780px;
+}
+
+.design-main-section
+{
+    background-image: url('../images/bg/bg-design.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dayzy-container
+{
+    margin-top: auto;
+}
+
+.design-main-section .container:first-child
+{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.dayzy-container:after
+{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 790px;
+    width: 450px;
+    background-image: url('../images/bg/dayzy-2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
 
 
