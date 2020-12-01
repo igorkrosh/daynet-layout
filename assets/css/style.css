@@ -1833,6 +1833,7 @@ footer .container
     background-size: cover;
     padding-bottom: 150px;
     overflow: hidden;
+    margin-bottom: 50px;
 }
 
 .what-we-do-section:after
